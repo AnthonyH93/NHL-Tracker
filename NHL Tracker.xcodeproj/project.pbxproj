@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4A624FB19C800F48BE7 /* AppDelegate.swift */; };
 		9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4A824FB19C800F48BE7 /* SceneDelegate.swift */; };
-		9D95D4AB24FB19C800F48BE7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4AA24FB19C800F48BE7 /* FirstViewController.swift */; };
-		9D95D4AD24FB19C800F48BE7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4AC24FB19C800F48BE7 /* SecondViewController.swift */; };
+		9D95D4AB24FB19C800F48BE7 /* NextGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4AA24FB19C800F48BE7 /* NextGameViewController.swift */; };
+		9D95D4AD24FB19C800F48BE7 /* SeasonGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4AC24FB19C800F48BE7 /* SeasonGamesViewController.swift */; };
 		9D95D4B024FB19C800F48BE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D95D4AE24FB19C800F48BE7 /* Main.storyboard */; };
 		9D95D4B324FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4B124FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld */; };
 		9D95D4B524FB19C900F48BE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D95D4B424FB19C900F48BE7 /* Assets.xcassets */; };
 		9D95D4B824FB19C900F48BE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D95D4B624FB19C900F48BE7 /* LaunchScreen.storyboard */; };
 		9D95D4C324FB19C900F48BE7 /* NHL_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4C224FB19C900F48BE7 /* NHL_TrackerTests.swift */; };
+		9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +33,8 @@
 		9D95D4A324FB19C800F48BE7 /* NHL Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NHL Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D95D4A624FB19C800F48BE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D95D4A824FB19C800F48BE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D95D4AA24FB19C800F48BE7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		9D95D4AC24FB19C800F48BE7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		9D95D4AA24FB19C800F48BE7 /* NextGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextGameViewController.swift; sourceTree = "<group>"; };
+		9D95D4AC24FB19C800F48BE7 /* SeasonGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonGamesViewController.swift; sourceTree = "<group>"; };
 		9D95D4AF24FB19C800F48BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D95D4B224FB19C800F48BE7 /* NHL_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NHL_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		9D95D4B424FB19C900F48BE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,6 +43,7 @@
 		9D95D4BE24FB19C900F48BE7 /* NHL TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NHL TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D95D4C224FB19C900F48BE7 /* NHL_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHL_TrackerTests.swift; sourceTree = "<group>"; };
 		9D95D4C424FB19C900F48BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +87,14 @@
 			children = (
 				9D95D4A624FB19C800F48BE7 /* AppDelegate.swift */,
 				9D95D4A824FB19C800F48BE7 /* SceneDelegate.swift */,
-				9D95D4AA24FB19C800F48BE7 /* FirstViewController.swift */,
-				9D95D4AC24FB19C800F48BE7 /* SecondViewController.swift */,
+				9D95D4AA24FB19C800F48BE7 /* NextGameViewController.swift */,
+				9D95D4AC24FB19C800F48BE7 /* SeasonGamesViewController.swift */,
 				9D95D4AE24FB19C800F48BE7 /* Main.storyboard */,
 				9D95D4B424FB19C900F48BE7 /* Assets.xcassets */,
 				9D95D4B624FB19C900F48BE7 /* LaunchScreen.storyboard */,
 				9D95D4B924FB19C900F48BE7 /* Info.plist */,
 				9D95D4B124FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld */,
+				9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */,
 			);
 			path = "NHL Tracker";
 			sourceTree = "<group>";
@@ -207,10 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D95D4B324FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld in Sources */,
-				9D95D4AD24FB19C800F48BE7 /* SecondViewController.swift in Sources */,
-				9D95D4AB24FB19C800F48BE7 /* FirstViewController.swift in Sources */,
+				9D95D4AD24FB19C800F48BE7 /* SeasonGamesViewController.swift in Sources */,
+				9D95D4AB24FB19C800F48BE7 /* NextGameViewController.swift in Sources */,
 				9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */,
 				9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */,
+				9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMBJV5C74X;
 				INFOPLIST_FILE = "NHL Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,6 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMBJV5C74X;
 				INFOPLIST_FILE = "NHL Tracker/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
