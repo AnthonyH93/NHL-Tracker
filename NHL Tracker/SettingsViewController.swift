@@ -16,7 +16,9 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     //MARK: Variables
     var pickerData: [String] = [String]()
-
+    
+    let constants = NHLTrackerConstants()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +28,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.favouriteTeamPicker.delegate = self
         self.favouriteTeamPicker.dataSource = self
         
-        pickerData = NHLTeamsStringArray
+        pickerData = constants.NHLTeamsStringArray
         
         favouriteTeamPicker.selectRow(2, inComponent: 0, animated: false)
         
