@@ -26,6 +26,8 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.favouriteTeamPicker.dataSource = self
         
         pickerData = NHLTeamsStringArray
+        
+        favouriteTeamPicker.selectRow(2, inComponent: 0, animated: false)
     }
     
     //MARK: Picker Functions
