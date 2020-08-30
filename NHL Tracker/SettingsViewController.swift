@@ -12,6 +12,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     //MARK: Properties
     @IBOutlet weak var favouriteTeamPicker: UIPickerView!
+    @IBOutlet weak var updateFavouriteTeamBtn: UIButton!
     
     //MARK: Variables
     var pickerData: [String] = [String]()
@@ -28,6 +29,8 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         pickerData = NHLTeamsStringArray
         
         favouriteTeamPicker.selectRow(2, inComponent: 0, animated: false)
+        
+        updateFavouriteTeamBtn.layer.cornerRadius = 10
     }
     
     //MARK: Picker Functions

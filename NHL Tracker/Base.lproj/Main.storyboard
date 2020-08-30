@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="NextGameViewController" customModule="NHL_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -28,18 +28,83 @@
             <objects>
                 <viewController id="O5b-KG-mUs" customClass="SettingsViewController" customModule="NHL_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A5s-64-PcY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsQ-Jd-Goi">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <subviews>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="faj-qQ-xEM">
-                                        <rect key="frame" x="0.0" y="128" width="414" height="162"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faj-qQ-xEM">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="162"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="162" id="9Uk-y3-la1"/>
+                                        </constraints>
                                     </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXS-aG-IDU">
+                                        <rect key="frame" x="125" y="8" width="124" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite Team:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W4-CM-3pV">
+                                        <rect key="frame" x="8" y="63" width="163" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iff-p6-SaQ">
+                                        <rect key="frame" x="66" y="253" width="244" height="39"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Update Favourite Team">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cu-eV-DUr">
+                                        <rect key="frame" x="166" y="392" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkk-ri-ORr">
+                                        <rect key="frame" x="8" y="324" width="191" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TsB-rz-G68">
+                                        <rect key="frame" x="320" y="320" width="49" height="31"/>
+                                        <color key="onTintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Thanks for using this app!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYS-CN-1UW">
+                                        <rect key="frame" x="66" y="379" width="244" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="faj-qQ-xEM" firstAttribute="top" secondItem="4W4-CM-3pV" secondAttribute="bottom" id="0an-Q8-QEm"/>
+                                    <constraint firstItem="sYS-CN-1UW" firstAttribute="top" secondItem="qkk-ri-ORr" secondAttribute="bottom" constant="28" id="47U-ip-rC9"/>
+                                    <constraint firstItem="DXS-aG-IDU" firstAttribute="centerX" secondItem="faj-qQ-xEM" secondAttribute="centerX" id="63C-46-YS7"/>
+                                    <constraint firstItem="DXS-aG-IDU" firstAttribute="top" secondItem="RsQ-Jd-Goi" secondAttribute="topMargin" id="Bfc-fh-uy9"/>
+                                    <constraint firstItem="qkk-ri-ORr" firstAttribute="top" secondItem="iff-p6-SaQ" secondAttribute="bottom" constant="32" id="CRn-Um-4H1"/>
+                                    <constraint firstItem="faj-qQ-xEM" firstAttribute="leading" secondItem="RsQ-Jd-Goi" secondAttribute="leading" id="CWp-CX-O5A"/>
+                                    <constraint firstItem="iff-p6-SaQ" firstAttribute="leading" secondItem="RsQ-Jd-Goi" secondAttribute="leading" constant="66" id="HsT-zB-R1L"/>
+                                    <constraint firstItem="faj-qQ-xEM" firstAttribute="centerX" secondItem="iff-p6-SaQ" secondAttribute="centerX" id="IFC-TY-XnG"/>
+                                    <constraint firstItem="4W4-CM-3pV" firstAttribute="leading" secondItem="qkk-ri-ORr" secondAttribute="leading" id="Kn5-Yh-Dzl"/>
+                                    <constraint firstItem="4W4-CM-3pV" firstAttribute="top" secondItem="DXS-aG-IDU" secondAttribute="bottom" constant="13" id="QAU-Mh-s6x"/>
+                                    <constraint firstItem="DXS-aG-IDU" firstAttribute="centerX" secondItem="RsQ-Jd-Goi" secondAttribute="centerX" id="TRY-KH-IqN"/>
+                                    <constraint firstItem="iff-p6-SaQ" firstAttribute="leading" secondItem="sYS-CN-1UW" secondAttribute="leading" id="ZY4-Tg-wwX"/>
+                                    <constraint firstAttribute="trailing" secondItem="TsB-rz-G68" secondAttribute="trailing" constant="6" id="bMA-hd-FRZ"/>
+                                    <constraint firstItem="iff-p6-SaQ" firstAttribute="trailing" secondItem="sYS-CN-1UW" secondAttribute="trailing" id="n4U-PD-JRX"/>
+                                    <constraint firstItem="qkk-ri-ORr" firstAttribute="bottom" secondItem="TsB-rz-G68" secondAttribute="bottom" id="n4l-6b-tbL"/>
+                                    <constraint firstItem="TsB-rz-G68" firstAttribute="top" secondItem="faj-qQ-xEM" secondAttribute="bottom" constant="66" id="sPm-Vs-FUg"/>
+                                    <constraint firstItem="2cu-eV-DUr" firstAttribute="leading" secondItem="RsQ-Jd-Goi" secondAttribute="leading" constant="166" id="uxn-Xr-SLN"/>
+                                    <constraint firstItem="4W4-CM-3pV" firstAttribute="leading" secondItem="RsQ-Jd-Goi" secondAttribute="leadingMargin" id="xjl-9h-TaD"/>
+                                    <constraint firstItem="sYS-CN-1UW" firstAttribute="centerY" secondItem="2cu-eV-DUr" secondAttribute="centerY" id="zHJ-iT-9dT"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -54,18 +119,19 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="mmj-y6-lNV"/>
                     <connections>
                         <outlet property="favouriteTeamPicker" destination="faj-qQ-xEM" id="tW2-5x-dkC"/>
+                        <outlet property="updateFavouriteTeamBtn" destination="iff-p6-SaQ" id="yM4-eb-NWJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="41p-6I-wvG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="0.0"/>
+            <point key="canvasLocation" x="1645.5999999999999" y="0.0"/>
         </scene>
         <!--Season Games-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SeasonGamesViewController" customModule="NHL_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>

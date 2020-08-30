@@ -91,12 +91,12 @@
 				9D95D4A824FB19C800F48BE7 /* SceneDelegate.swift */,
 				9D95D4AA24FB19C800F48BE7 /* NextGameViewController.swift */,
 				9D95D4AC24FB19C800F48BE7 /* SeasonGamesViewController.swift */,
+				9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */,
 				9D95D4AE24FB19C800F48BE7 /* Main.storyboard */,
 				9D95D4B424FB19C900F48BE7 /* Assets.xcassets */,
 				9D95D4B624FB19C900F48BE7 /* LaunchScreen.storyboard */,
 				9D95D4B924FB19C900F48BE7 /* Info.plist */,
 				9D95D4B124FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld */,
-				9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */,
 				9D95D4CF24FB223300F48BE7 /* Constants.swift */,
 			);
 			path = "NHL Tracker";
