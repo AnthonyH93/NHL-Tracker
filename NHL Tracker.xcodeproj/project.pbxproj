@@ -17,6 +17,7 @@
 		9D95D4B824FB19C900F48BE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D95D4B624FB19C900F48BE7 /* LaunchScreen.storyboard */; };
 		9D95D4C324FB19C900F48BE7 /* NHL_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4C224FB19C900F48BE7 /* NHL_TrackerTests.swift */; };
 		9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */; };
+		9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4CF24FB223300F48BE7 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9D95D4C224FB19C900F48BE7 /* NHL_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHL_TrackerTests.swift; sourceTree = "<group>"; };
 		9D95D4C424FB19C900F48BE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9D95D4CF24FB223300F48BE7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				9D95D4B924FB19C900F48BE7 /* Info.plist */,
 				9D95D4B124FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld */,
 				9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */,
+				9D95D4CF24FB223300F48BE7 /* Constants.swift */,
 			);
 			path = "NHL Tracker";
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				9D95D4AD24FB19C800F48BE7 /* SeasonGamesViewController.swift in Sources */,
 				9D95D4AB24FB19C800F48BE7 /* NextGameViewController.swift in Sources */,
 				9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */,
+				9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */,
 				9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */,
 				9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */,
 			);
