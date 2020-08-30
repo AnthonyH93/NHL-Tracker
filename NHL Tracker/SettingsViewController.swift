@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var pickerData: [String] = [String]()
     
     let constants = NHLTrackerConstants()
+    let dataPersistence = DataPersistence()
     
     override func viewDidLoad() {
         super.viewDidLoad()

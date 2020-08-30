@@ -30,7 +30,7 @@ class FavouriteNHLTeam : NSObject, NSCoding {
     
     //Marked with static since they belong to the class instead of an instance of the class
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("favouriteTeam")
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("favouriteNHLTeam")
     
     //MARK: Types
     
