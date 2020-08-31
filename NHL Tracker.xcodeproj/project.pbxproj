@@ -93,20 +93,13 @@
 		9D95D4A524FB19C800F48BE7 /* NHL Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				9D95D4DA24FC847300F48BE7 /* Controllers */,
+				9D95D4D924FC846B00F48BE7 /* View */,
+				9D95D4D824FC845B00F48BE7 /* Resources */,
+				9D95D4D724FC844600F48BE7 /* Model */,
 				9D95D4A624FB19C800F48BE7 /* AppDelegate.swift */,
 				9D95D4A824FB19C800F48BE7 /* SceneDelegate.swift */,
-				9D95D4AA24FB19C800F48BE7 /* NextGameViewController.swift */,
-				9D95D4AC24FB19C800F48BE7 /* SeasonGamesViewController.swift */,
-				9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */,
-				9D95D4AE24FB19C800F48BE7 /* Main.storyboard */,
-				9D95D4B424FB19C900F48BE7 /* Assets.xcassets */,
-				9D95D4B624FB19C900F48BE7 /* LaunchScreen.storyboard */,
 				9D95D4B924FB19C900F48BE7 /* Info.plist */,
-				9D95D4B124FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld */,
-				9D95D4CF24FB223300F48BE7 /* Constants.swift */,
-				9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */,
-				9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */,
-				9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */,
 			);
 			path = "NHL Tracker";
 			sourceTree = "<group>";
@@ -118,6 +111,53 @@
 				9D95D4C424FB19C900F48BE7 /* Info.plist */,
 			);
 			path = "NHL TrackerTests";
+			sourceTree = "<group>";
+		};
+		9D95D4D724FC844600F48BE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D95D4CF24FB223300F48BE7 /* Constants.swift */,
+				9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */,
+				9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */,
+				9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D95D4D824FC845B00F48BE7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9D95D4DB24FC84E300F48BE7 /* Storyboards */,
+				9D95D4B424FB19C900F48BE7 /* Assets.xcassets */,
+				9D95D4B124FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9D95D4D924FC846B00F48BE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D95D4DA24FC847300F48BE7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D95D4AA24FB19C800F48BE7 /* NextGameViewController.swift */,
+				9D95D4AC24FB19C800F48BE7 /* SeasonGamesViewController.swift */,
+				9D95D4CD24FB1C8600F48BE7 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9D95D4DB24FC84E300F48BE7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9D95D4AE24FB19C800F48BE7 /* Main.storyboard */,
+				9D95D4B624FB19C900F48BE7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
