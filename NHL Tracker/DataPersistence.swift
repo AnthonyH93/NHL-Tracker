@@ -14,7 +14,7 @@ import os.log
 struct DataPersistence {
     
     //Save a users favourite NHL team
-    private func saveFavouriteNHLTeam(favouriteNHLTeam: FavouriteNHLTeam) {
+    func saveFavouriteNHLTeam(favouriteNHLTeam: FavouriteNHLTeam) {
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fullPath = paths[0].appendingPathComponent("favouriteNHLTeam")
@@ -22,7 +22,7 @@ struct DataPersistence {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: favouriteNHLTeam, requiringSecureCoding: false)
             try data.write(to: fullPath)
-            os_log("Preferences successfully saved.", log: OSLog.default, type: .debug)
+            os_log("Favourite team successfully saved.", log: OSLog.default, type: .debug)
         } catch {
             os_log("Failed to save preferences...", log: OSLog.default, type: .error)
         }
@@ -30,7 +30,7 @@ struct DataPersistence {
     
     //Safe method to load a users favourite NHL team
     //If there is no saved team on the device this method returns nil
-    private func loadFavouriteNHLTeam() -> FavouriteNHLTeam? {
+    func loadFavouriteNHLTeam() -> FavouriteNHLTeam? {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fullPath = paths[0].appendingPathComponent("favouriteNHLTeam")
         

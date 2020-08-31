@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     let constants = NHLTrackerConstants()
     let dataPersistence = DataPersistence()
+    let helperFunctions = HelperFunctions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,25 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     //MARK: Button Actions
     @IBAction func updateFavouriteTeamPressed(_ sender: Any) {
+        let pickerNum = favouriteTeamPicker.selectedRow(inComponent: 0)
+        let chosenTeam = pickerData[pickerNum]
+        let chosenTeamNumber = helperFunctions.teamNameToID(teamToConvert: chosenTeam)
         
+        let newFavouriteTeam = FavouriteNHLTeam(favouriteTeam: chosenTeam, favouriteTeamNumber: chosenTeamNumber)
+        dataPersistence.saveFavouriteNHLTeam(favouriteNHLTeam: newFavouriteTeam)
+        
+        //Create and display alert about the favourite team change
+        let teamUpdateAlert = UIAlertController(title: constants.favouriteTeamAlertTitle, message: constants.favouriteTeamAlertMessage + chosenTeam, preferredStyle: .alert)
+        
+        //create Okay button
+        let doneAction = UIAlertAction(title: "Done", style: .default) {
+            (action) -> Void in
+        }
+        
+        //Add task to tableview buttons
+        teamUpdateAlert.addAction(doneAction)
+        
+        self.present(teamUpdateAlert, animated: true, completion: nil)
     }
     
     //MARK: Picker Functions

@@ -41,4 +41,8 @@ struct NHLTrackerConstants {
                                           "Vegas Golden Knights",
                                           "Washington Capitals",
                                           "Winnipeg Jets" ]
+    
+    let favouriteTeamAlertTitle: String = "Favourite Team Updated"
+    
+    let favouriteTeamAlertMessage: String = "You have updated your favourite team to "
 }
