@@ -20,6 +20,7 @@
 		9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4CF24FB223300F48BE7 /* Constants.swift */; };
 		9D95D4D224FC5C3600F48BE7 /* FavouriteNHLTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */; };
 		9D95D4D424FC5E8400F48BE7 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */; };
+		9D95D4D624FC659E00F48BE7 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D524FC659E00F48BE7 /* HelperFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		9D95D4CF24FB223300F48BE7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteNHLTeam.swift; sourceTree = "<group>"; };
 		9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
+		9D95D4D524FC659E00F48BE7 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				9D95D4CF24FB223300F48BE7 /* Constants.swift */,
 				9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */,
 				9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */,
+				9D95D4D524FC659E00F48BE7 /* HelperFunctions.swift */,
 			);
 			path = "NHL Tracker";
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				9D95D4AD24FB19C800F48BE7 /* SeasonGamesViewController.swift in Sources */,
 				9D95D4AB24FB19C800F48BE7 /* NextGameViewController.swift in Sources */,
 				9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */,
+				9D95D4D624FC659E00F48BE7 /* HelperFunctions.swift in Sources */,
 				9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */,
 				9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */,
 				9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */,

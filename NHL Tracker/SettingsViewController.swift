@@ -36,6 +36,11 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         updateFavouriteTeamBtn.layer.cornerRadius = 10
     }
     
+    //MARK: Button Actions
+    @IBAction func updateFavouriteTeamPressed(_ sender: Any) {
+        
+    }
+    
     //MARK: Picker Functions
     //Number of columns of data for the favourite team picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

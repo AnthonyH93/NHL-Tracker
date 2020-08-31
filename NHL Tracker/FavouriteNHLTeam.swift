@@ -33,27 +33,24 @@ class FavouriteNHLTeam : NSObject, NSCoding {
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("favouriteNHLTeam")
     
     //MARK: Types
-    
     struct PropertyKey {
         static let favouriteTeam = "favouriteTeam"
         static let favouriteTeamNumber = "favouriteTeamNumber"
     }
     
     //MARK: NSCoding
-    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(favouriteTeam, forKey: PropertyKey.favouriteTeam)
         aCoder.encode(favouriteTeamNumber, forKey: PropertyKey.favouriteTeamNumber)
     }
     
-    //convenience means it is a secondary initializer (must call designated initializer), the ? means it is failable
     required convenience init?(coder aDecoder: NSCoder) {
         
         let favouriteTeam = aDecoder.decodeObject(forKey: PropertyKey.favouriteTeam) as! String
         
         let favouriteTeamNumber = aDecoder.decodeInt64(forKey: PropertyKey.favouriteTeamNumber)
         
-        //Must call designated initializer.
+        //Must call designated initializer
         self.init(favouriteTeam: favouriteTeam, favouriteTeamNumber: favouriteTeamNumber)
     }
 }
