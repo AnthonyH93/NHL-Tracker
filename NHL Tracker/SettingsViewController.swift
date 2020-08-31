@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     let constants = NHLTrackerConstants()
     let dataPersistence = DataPersistence()
-    let helperFunctions = HelperFunctions()
+    let teamConversions = TeamConversions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +30,19 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.favouriteTeamPicker.delegate = self
         self.favouriteTeamPicker.dataSource = self
         
+        //Set the UI picker data to the array of alphabetical NHL teams
         pickerData = constants.NHLTeamsStringArray
         
-        favouriteTeamPicker.selectRow(2, inComponent: 0, animated: false)
+        //If there is a saved favouirte team then set the picker to display that team, else use default
+        if let savedFavouriteTeam = dataPersistence.loadFavouriteNHLTeam() {
+            let favouriteTeamName = savedFavouriteTeam.favouriteTeam
+            let favouriteTeamAlphabeticIndex = teamConversions.teamNameToAlphabeticalIndex(teamToConvert: favouriteTeamName)
+            
+            favouriteTeamPicker.selectRow(favouriteTeamAlphabeticIndex, inComponent: 0, animated: false)
+        }
+        else {
+            favouriteTeamPicker.selectRow(0, inComponent: 0, animated: false)
+        }
         
         updateFavouriteTeamBtn.layer.cornerRadius = 10
     }
@@ -41,7 +51,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func updateFavouriteTeamPressed(_ sender: Any) {
         let pickerNum = favouriteTeamPicker.selectedRow(inComponent: 0)
         let chosenTeam = pickerData[pickerNum]
-        let chosenTeamNumber = helperFunctions.teamNameToID(teamToConvert: chosenTeam)
+        let chosenTeamNumber = teamConversions.teamNameToID(teamToConvert: chosenTeam)
         
         let newFavouriteTeam = FavouriteNHLTeam(favouriteTeam: chosenTeam, favouriteTeamNumber: chosenTeamNumber)
         dataPersistence.saveFavouriteNHLTeam(favouriteNHLTeam: newFavouriteTeam)
