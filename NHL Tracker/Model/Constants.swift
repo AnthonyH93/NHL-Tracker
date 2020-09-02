@@ -25,7 +25,7 @@ struct NHLTrackerConstants {
                                           "Florida Panthers",
                                           "Los Angeles Kings",
                                           "Minnesota Wild",
-                                          "Montreal Canadiens",
+                                          "Montréal Canadians",
                                           "Nashville Predators",
                                           "New Jersey Devils",
                                           "New York Islanders",

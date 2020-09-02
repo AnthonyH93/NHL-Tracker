@@ -30,7 +30,7 @@ struct TeamConversions {
             teamID = 6
         case "Buffalo Sabres":
             teamID = 7
-        case "Montreal Canadiens":
+        case "Montréal Canadians":
             teamID = 8
         case "Ottawa Senators":
             teamID = 9
@@ -120,7 +120,7 @@ struct TeamConversions {
             teamIndex = 13
         case "Minnesota Wild":
             teamIndex = 14
-        case "Montreal Canadiens":
+        case "Montréal Canadians":
             teamIndex = 15
         case "Nashville Predators":
             teamIndex = 16
@@ -158,5 +158,79 @@ struct TeamConversions {
             fatalError("Not a valid NHL team")
         }
         return teamIndex
+    }
+    
+    func teamNameToShortName(teamToConvert: String) -> String {
+        var teamSN: String = ""
+        
+        switch teamToConvert {
+        case "Anaheim Ducks":
+            teamSN = "ANA"
+        case "Arizona Coyotes":
+            teamSN = "ARI"
+        case "Boston Bruins":
+            teamSN = "BOS"
+        case "Buffalo Sabres":
+            teamSN = "BUF"
+        case "Calgary Flames":
+            teamSN = "CGY"
+        case "Carolina Hurricanes":
+            teamSN = "CAR"
+        case "Chicago Blackhawks":
+            teamSN = "CHI"
+        case "Colorado Avalanche":
+            teamSN = "COL"
+        case "Columbus Blue Jackets":
+            teamSN = "CBJ"
+        case "Dallas Stars":
+            teamSN = "DAL"
+        case "Detroit Red Wings":
+            teamSN = "DET"
+        case "Edmonton Oilers":
+            teamSN = "EDM"
+        case "Florida Panthers":
+            teamSN = "FLA"
+        case "Los Angeles Kings":
+            teamSN = "LAK"
+        case "Minnesota Wild":
+            teamSN = "MIN"
+        case "Montréal Canadians":
+            teamSN = "MTL"
+        case "Nashville Predators":
+            teamSN = "NSH"
+        case "New Jersey Devils":
+            teamSN = "NJD"
+        case "New York Islanders":
+            teamSN = "NYI"
+        case "New York Rangers":
+            teamSN = "NYR"
+        case "Ottawa Senators":
+            teamSN = "OTT"
+        case "Philadelphia Flyers":
+            teamSN = "PHI"
+        case "Pittsburgh Penguins":
+            teamSN = "PIT"
+        case "San Jose Sharks":
+            teamSN = "SJS"
+        case "St. Louis Blues":
+            teamSN = "STL"
+        case "Tampa Bay Lightning":
+            teamSN = "TBL"
+        case "Toronto Maple Leafs":
+            teamSN = "TOR"
+        case "Vancouver Canucks":
+            teamSN = "VAN"
+        case "Vegas Golden Knights":
+            teamSN = "VGK"
+        case "Washington Capitals":
+            teamSN = "WSH"
+        case "Winnipeg Jets":
+            teamSN = "WPG"
+        //NOTE: Future expansion team Seattle Kraken will be teamID 55
+        default:
+            //Not a valid team
+            fatalError("Not a valid NHL team")
+        }
+        return teamSN
     }
 }

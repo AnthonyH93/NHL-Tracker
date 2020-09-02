@@ -23,10 +23,10 @@ struct Game: Decodable {
     let gameDate: String
     let teams: Teams
 }
+
 struct Teams: Decodable {
     let away: Team
     let home: Team
-
 }
 
 struct Team: Decodable {
