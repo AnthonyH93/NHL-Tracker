@@ -31,13 +31,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBE-sf-e0D">
-                                <rect key="frame" x="170.66666666666666" y="230" width="34" height="27"/>
+                                <rect key="frame" x="170.66666666666666" y="230" width="33.666666666666657" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSj-m2-Fvz">
-                                <rect key="frame" x="212" y="230" width="147" height="27"/>
+                                <rect key="frame" x="211.66666666666663" y="230" width="147.33333333333337" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00-00-00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5j7-NU-WCv">
-                                <rect key="frame" x="212" y="259" width="147" height="27"/>
+                                <rect key="frame" x="211.66666666666663" y="259" width="147.33333333333337" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -125,6 +125,19 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Next Game" image="timer" catalog="system" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="cityLabel" destination="a23-5f-bSS" id="a40-2h-QOe"/>
+                        <outlet property="countdownLabel" destination="9LO-l9-nZg" id="2ho-V7-PPp"/>
+                        <outlet property="favTeamTitle" destination="AEA-tP-XSq" id="TBo-OB-ODT"/>
+                        <outlet property="previousGameLabel" destination="olc-8M-a2g" id="4tt-j9-CMi"/>
+                        <outlet property="record1Label" destination="Xcd-MZ-9Z2" id="tk5-m8-n3x"/>
+                        <outlet property="record2Label" destination="5j7-NU-WCv" id="iBJ-m0-IUU"/>
+                        <outlet property="team1Label" destination="OB7-5t-Qt5" id="CUv-FY-IHj"/>
+                        <outlet property="team2label" destination="FSj-m2-Fvz" id="txm-zT-NKT"/>
+                        <outlet property="timeLabel" destination="ILg-iZ-oz1" id="cpS-ay-PSE"/>
+                        <outlet property="untilNextGameLabel" destination="QdI-z9-OQE" id="YhP-Vt-SsY"/>
+                        <outlet property="vsLabel" destination="XBE-sf-e0D" id="tMg-HV-QWo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

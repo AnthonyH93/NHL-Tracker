@@ -10,9 +10,42 @@ import UIKit
 
 class NextGameViewController: UIViewController {
 
+    //MARK: Properties
+    @IBOutlet weak var favTeamTitle: UILabel!
+    @IBOutlet weak var previousGameLabel: UILabel!
+    @IBOutlet weak var team1Label: UILabel!
+    @IBOutlet weak var team2label: UILabel!
+    @IBOutlet weak var record1Label: UILabel!
+    @IBOutlet weak var record2Label: UILabel!
+    @IBOutlet weak var vsLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var countdownLabel: UILabel!
+    @IBOutlet weak var untilNextGameLabel: UILabel!
+    
+    let dataPersistence = DataPersistence()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        favTeamTitle.adjustsFontSizeToFitWidth = true
+        
+        //Hide for now, will need to unhide depending on API response
+        previousGameLabel.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //Decide label initial values based on saved favourite team
+        if let savedFavouriteTeam = dataPersistence.loadFavouriteNHLTeam() {
+            let favouriteTeamName = savedFavouriteTeam.favouriteTeam
+            
+            favTeamTitle.text = favouriteTeamName + " Next Game"
+            favTeamTitle.textColor = .black
+        }
+        else {
+            favTeamTitle.text = "Please select a favourite team"
+            favTeamTitle.textColor = .systemRed
+        }
     }
 
 
