@@ -20,4 +20,12 @@ struct GameHelper {
             return false
         }
     }
+    
+    func formatRecord(leagueRecord: LeagueRecord) -> String {
+        let wins = leagueRecord.wins
+        let losses = leagueRecord.losses
+        let ot = leagueRecord.ot
+        
+        return String("\(wins)-\(losses)-\(ot)")
+    }
 }

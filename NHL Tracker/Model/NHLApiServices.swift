@@ -14,8 +14,6 @@ struct NHLApiServices {
         let params = ["expand":"team.schedule.next"]
         let url = "https://statsapi.web.nhl.com/api/v1/teams/" + String(teamID)
         
-        print(url)
-        
         var components = URLComponents(string: url)!
         components.queryItems = params.map { (key, value) in
             URLQueryItem(name: key, value: value)
@@ -45,8 +43,6 @@ struct NHLApiServices {
     func fetchPreviousGame(teamID: Int64, completion: @escaping (OuterTeam_Previous?, Error?) -> Void) {
         let params = ["expand":"team.schedule.previous"]
         let url = "https://statsapi.web.nhl.com/api/v1/teams/" + String(teamID)
-        
-        print(url)
         
         var components = URLComponents(string: url)!
         components.queryItems = params.map { (key, value) in

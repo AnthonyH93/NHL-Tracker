@@ -68,9 +68,13 @@ class NextGameViewController: UIViewController {
                         
                         if (homeGame) {
                             self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.away.team.name)
+                            self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
+                            self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
                         }
                         else {
                             self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.home.team.name)
+                            self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
+                            self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
                         }
                         
                     }
@@ -96,9 +100,13 @@ class NextGameViewController: UIViewController {
                             
                             if (homeGame) {
                                 self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.away.team.name)
+                                self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
+                                self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
                             }
                             else {
                                 self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.home.team.name)
+                                self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
+                                self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
                             }
                         }
                     }
