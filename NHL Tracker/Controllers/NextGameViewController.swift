@@ -24,6 +24,7 @@ class NextGameViewController: UIViewController {
     @IBOutlet weak var untilNextGameLabel: UILabel!
     
     let dataPersistence = DataPersistence()
+    let nhlApiServices = NHLApiServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,14 @@ class NextGameViewController: UIViewController {
             
             favTeamTitle.text = favouriteTeamName + " Next Game"
             favTeamTitle.textColor = .black
+            
+            nhlApiServices.fetchNextGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
+                guard let responseObject = responseObject, error == nil else {
+                    print(error ?? "Unknown error")
+                    return
+                }
+                print(responseObject)
+            }
         }
         else {
             favTeamTitle.text = "Please select a favourite team"

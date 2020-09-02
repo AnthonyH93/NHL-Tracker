@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D3634C424FF4BF900C192F9 /* FullGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3634C324FF4BF900C192F9 /* FullGame.swift */; };
+		9D3634C624FF4C0C00C192F9 /* PreviousGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3634C524FF4C0C00C192F9 /* PreviousGame.swift */; };
+		9D3634C824FF4C5F00C192F9 /* NHLApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */; };
+		9D3634CA24FF6B5C00C192F9 /* NextGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3634C924FF6B5C00C192F9 /* NextGame.swift */; };
 		9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4A624FB19C800F48BE7 /* AppDelegate.swift */; };
 		9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4A824FB19C800F48BE7 /* SceneDelegate.swift */; };
 		9D95D4AB24FB19C800F48BE7 /* NextGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4AA24FB19C800F48BE7 /* NextGameViewController.swift */; };
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D3634C324FF4BF900C192F9 /* FullGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullGame.swift; sourceTree = "<group>"; };
+		9D3634C524FF4C0C00C192F9 /* PreviousGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousGame.swift; sourceTree = "<group>"; };
+		9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLApiServices.swift; sourceTree = "<group>"; };
+		9D3634C924FF6B5C00C192F9 /* NextGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextGame.swift; sourceTree = "<group>"; };
 		9D95D4A324FB19C800F48BE7 /* NHL Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NHL Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D95D4A624FB19C800F48BE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D95D4A824FB19C800F48BE7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +128,10 @@
 				9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */,
 				9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */,
 				9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */,
+				9D3634C324FF4BF900C192F9 /* FullGame.swift */,
+				9D3634C924FF6B5C00C192F9 /* NextGame.swift */,
+				9D3634C524FF4C0C00C192F9 /* PreviousGame.swift */,
+				9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,12 +274,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D95D4D424FC5E8400F48BE7 /* DataPersistence.swift in Sources */,
+				9D3634C824FF4C5F00C192F9 /* NHLApiServices.swift in Sources */,
+				9D3634CA24FF6B5C00C192F9 /* NextGame.swift in Sources */,
 				9D95D4B324FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld in Sources */,
 				9D95D4AD24FB19C800F48BE7 /* SeasonGamesViewController.swift in Sources */,
 				9D95D4AB24FB19C800F48BE7 /* NextGameViewController.swift in Sources */,
 				9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */,
 				9D95D4D624FC659E00F48BE7 /* TeamConversions.swift in Sources */,
+				9D3634C424FF4BF900C192F9 /* FullGame.swift in Sources */,
 				9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */,
+				9D3634C624FF4C0C00C192F9 /* PreviousGame.swift in Sources */,
 				9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */,
 				9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */,
 				9D95D4D224FC5C3600F48BE7 /* FavouriteNHLTeam.swift in Sources */,
