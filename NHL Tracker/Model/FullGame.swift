@@ -22,6 +22,7 @@ struct Game: Decodable {
     let season: String
     let gameDate: String
     let teams: Teams
+    let venue: Venue
 }
 
 struct Teams: Decodable {
@@ -35,10 +36,15 @@ struct Team: Decodable {
     let team: BasicTeam
 }
 
+struct Venue: Decodable {
+    let name: String
+}
+
 struct BasicTeam: Decodable {
     let id: Int
     let name: String
 }
+
 struct LeagueRecord: Decodable {
     let wins: Int
     let losses: Int

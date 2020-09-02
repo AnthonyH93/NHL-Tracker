@@ -65,6 +65,7 @@ class NextGameViewController: UIViewController {
                     let homeGame = self.gameHelper.decideHomeOrAway(teams: nextGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
                     DispatchQueue.main.async {
                         self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
+                        self.cityLabel.text = "@" + nextGame.dates[0].games[0].venue.name
                         
                         if (homeGame) {
                             //Bold home team
@@ -105,6 +106,7 @@ class NextGameViewController: UIViewController {
                         let homeGame = self.gameHelper.decideHomeOrAway(teams: previousGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
                         DispatchQueue.main.async {
                             self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
+                            self.cityLabel.text = "@" + previousGame.dates[0].games[0].venue.name
                             
                             if (homeGame) {
                                 //Bold home team
