@@ -67,11 +67,19 @@ class NextGameViewController: UIViewController {
                         self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
                         
                         if (homeGame) {
+                            //Bold home team
+                            self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                            self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                            
                             self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.away.team.name)
                             self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
                             self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
                         }
                         else {
+                            //Bold home team
+                            self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                            self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                            
                             self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.home.team.name)
                             self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
                             self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
@@ -99,11 +107,19 @@ class NextGameViewController: UIViewController {
                             self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
                             
                             if (homeGame) {
+                                //Bold home team
+                                self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                                self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                                
                                 self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.away.team.name)
                                 self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
                                 self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
                             }
                             else {
+                                //Bold home team
+                                self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                                self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                                
                                 self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.home.team.name)
                                 self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
                                 self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
