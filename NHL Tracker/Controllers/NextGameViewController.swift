@@ -159,6 +159,16 @@ class NextGameViewController: UIViewController {
                         self.record2Label.text = nextGameRecord2
                         self.timeLabel.text = nextGameDate
                         self.cityLabel.text = nextGameVenue
+                        
+                        //Bold the home team
+                        if (nextGameIsHome) {
+                            self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                            self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                        }
+                        else {
+                            self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                            self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                        }
                     }
                     else {
                         if (prevGameAvailable){
@@ -169,6 +179,16 @@ class NextGameViewController: UIViewController {
                             self.record2Label.text = prevGameRecord2
                             self.timeLabel.text = prevGameDate
                             self.cityLabel.text = prevGameVenue
+                            
+                            //Bold the home team
+                            if (prevGameIsHome) {
+                                self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                                self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                            }
+                            else {
+                                self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+                                self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+                            }
                         }
                     }
                 }
