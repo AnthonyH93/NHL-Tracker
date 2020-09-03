@@ -24,11 +24,15 @@ class NextGameViewController: UIViewController {
     @IBOutlet weak var score2Label: UILabel!
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var gameStateLabel: UILabel!
+    @IBOutlet weak var gameScoreLabel: UILabel!
     
     let dataPersistence = DataPersistence()
     let nhlApiServices = NHLApiServices()
     let teamConversions = TeamConversions()
     let gameHelper = GameHelper()
+    
+    let dateFormatterGet = DateFormatter()
+    let dateFormatterPrint = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,9 @@ class NextGameViewController: UIViewController {
         
         //Hide for now, will need to unhide depending on API response
         //previousGameLabel.isHidden = true
+        //Setup date formatter formats
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy @HH:mm"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +75,11 @@ class NextGameViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
                         self.cityLabel.text = "@" + nextGame.dates[0].games[0].venue.name
+                        
+                        //Format date to display on the screen
+                        if let date = self.dateFormatterGet.date(from: nextGame.dates[0].games[0].gameDate) {
+                            self.timeLabel.text = self.dateFormatterPrint.string(from: date)
+                        }
                         
                         if (homeGame) {
                             //Bold home team
@@ -109,6 +121,11 @@ class NextGameViewController: UIViewController {
                         DispatchQueue.main.async {
                             self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
                             self.cityLabel.text = "@" + previousGame.dates[0].games[0].venue.name
+                            
+                            //Format date to display on the screen
+                            if let date = self.dateFormatterGet.date(from: previousGame.dates[0].games[0].gameDate) {
+                                self.timeLabel.text = self.dateFormatterPrint.string(from: date)
+                            }
                             
                             if (homeGame) {
                                 //Bold home team

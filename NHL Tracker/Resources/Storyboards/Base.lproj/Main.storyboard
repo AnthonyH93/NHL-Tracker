@@ -75,26 +75,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT0-f4-duU">
-                                <rect key="frame" x="16" y="440" width="138" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QT0-f4-duU">
+                                <rect key="frame" x="16" y="481" width="138" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V88-Od-Gum">
-                                <rect key="frame" x="221" y="440" width="138" height="53"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V88-Od-Gum">
+                                <rect key="frame" x="216" y="481" width="143" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game State" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4H-Uz-hga">
-                                <rect key="frame" x="16" y="569" width="343" height="27"/>
+                                <rect key="frame" x="16" y="610" width="343" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNl-Ai-tdq">
-                                <rect key="frame" x="16" y="534" width="343" height="27"/>
+                                <rect key="frame" x="16" y="575" width="343" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-Kk-ca8">
+                                <rect key="frame" x="16" y="434" width="343" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -102,16 +108,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="V88-Od-Gum" firstAttribute="trailing" secondItem="dNl-Ai-tdq" secondAttribute="trailing" id="0jg-p8-MPz"/>
                             <constraint firstItem="OB7-5t-Qt5" firstAttribute="top" secondItem="olc-8M-a2g" secondAttribute="bottom" constant="72" id="3Qg-75-mN9"/>
                             <constraint firstItem="a23-5f-bSS" firstAttribute="top" secondItem="ILg-iZ-oz1" secondAttribute="bottom" constant="8" id="4j7-Ly-LHk"/>
                             <constraint firstItem="Xcd-MZ-9Z2" firstAttribute="baseline" secondItem="5j7-NU-WCv" secondAttribute="baseline" id="5Fi-AC-M8A"/>
+                            <constraint firstItem="V88-Od-Gum" firstAttribute="baseline" secondItem="QT0-f4-duU" secondAttribute="baseline" id="7cX-Ao-acR"/>
                             <constraint firstItem="FSj-m2-Fvz" firstAttribute="leading" secondItem="XBE-sf-e0D" secondAttribute="trailing" constant="7.3333333333333428" id="887-Hw-1I0"/>
+                            <constraint firstItem="j8C-Kk-ca8" firstAttribute="leading" secondItem="QT0-f4-duU" secondAttribute="leading" id="8er-Hv-vep"/>
                             <constraint firstItem="AEA-tP-XSq" firstAttribute="leading" secondItem="olc-8M-a2g" secondAttribute="leading" id="9pE-jm-bMk"/>
                             <constraint firstItem="FSj-m2-Fvz" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="E0G-vj-myH"/>
                             <constraint firstItem="AEA-tP-XSq" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="30" id="Ei0-8V-4o7"/>
-                            <constraint firstItem="QT0-f4-duU" firstAttribute="baseline" secondItem="V88-Od-Gum" secondAttribute="baseline" id="RHj-J3-WjD"/>
-                            <constraint firstItem="V88-Od-Gum" firstAttribute="trailing" secondItem="a23-5f-bSS" secondAttribute="trailing" id="Rri-CG-5N4"/>
+                            <constraint firstItem="V88-Od-Gum" firstAttribute="trailing" secondItem="dNl-Ai-tdq" secondAttribute="trailing" id="JGs-um-xVj"/>
                             <constraint firstItem="FSj-m2-Fvz" firstAttribute="leading" secondItem="5j7-NU-WCv" secondAttribute="leading" id="TZp-fd-srw"/>
                             <constraint firstItem="Xcd-MZ-9Z2" firstAttribute="top" secondItem="OB7-5t-Qt5" secondAttribute="bottom" constant="2" id="VMe-Vu-OWc"/>
                             <constraint firstItem="FSj-m2-Fvz" firstAttribute="trailing" secondItem="5j7-NU-WCv" secondAttribute="trailing" id="VQm-dR-13l"/>
@@ -122,7 +128,8 @@
                             <constraint firstItem="dNl-Ai-tdq" firstAttribute="leading" secondItem="S4H-Uz-hga" secondAttribute="leading" id="a0d-el-key"/>
                             <constraint firstItem="AEA-tP-XSq" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="31" id="b2i-kV-stA"/>
                             <constraint firstItem="olc-8M-a2g" firstAttribute="top" secondItem="AEA-tP-XSq" secondAttribute="bottom" constant="8" id="bYk-o1-7wD"/>
-                            <constraint firstItem="QT0-f4-duU" firstAttribute="top" secondItem="a23-5f-bSS" secondAttribute="bottom" constant="84" id="cLb-Br-pbc"/>
+                            <constraint firstItem="QT0-f4-duU" firstAttribute="top" secondItem="a23-5f-bSS" secondAttribute="bottom" constant="125" id="cLb-Br-pbc"/>
+                            <constraint firstItem="V88-Od-Gum" firstAttribute="trailing" secondItem="a23-5f-bSS" secondAttribute="trailing" id="dbd-xX-Awo"/>
                             <constraint firstItem="ILg-iZ-oz1" firstAttribute="trailing" secondItem="a23-5f-bSS" secondAttribute="trailing" id="en8-Tu-Y8n"/>
                             <constraint firstItem="ILg-iZ-oz1" firstAttribute="leading" secondItem="a23-5f-bSS" secondAttribute="leading" id="ewc-ro-yig"/>
                             <constraint firstItem="S4H-Uz-hga" firstAttribute="top" secondItem="dNl-Ai-tdq" secondAttribute="bottom" constant="8" id="f6Q-Sz-A6g"/>
@@ -130,6 +137,8 @@
                             <constraint firstItem="OB7-5t-Qt5" firstAttribute="leading" secondItem="Xcd-MZ-9Z2" secondAttribute="leading" id="gx1-We-yut"/>
                             <constraint firstItem="ILg-iZ-oz1" firstAttribute="top" secondItem="Xcd-MZ-9Z2" secondAttribute="bottom" constant="8" id="k8m-dk-sQJ"/>
                             <constraint firstItem="5j7-NU-WCv" firstAttribute="trailing" secondItem="ILg-iZ-oz1" secondAttribute="trailing" id="kBz-e5-TEd"/>
+                            <constraint firstItem="QT0-f4-duU" firstAttribute="top" secondItem="j8C-Kk-ca8" secondAttribute="bottom" constant="20" id="kjh-By-2Zq"/>
+                            <constraint firstItem="V88-Od-Gum" firstAttribute="trailing" secondItem="j8C-Kk-ca8" secondAttribute="trailing" id="l20-kF-tja"/>
                             <constraint firstItem="AEA-tP-XSq" firstAttribute="trailing" secondItem="olc-8M-a2g" secondAttribute="trailing" id="m6G-77-Ghk"/>
                             <constraint firstItem="OB7-5t-Qt5" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="mDo-Nm-pFA"/>
                             <constraint firstItem="QT0-f4-duU" firstAttribute="leading" secondItem="a23-5f-bSS" secondAttribute="leading" id="pVq-Fs-oi3"/>
@@ -145,6 +154,7 @@
                     <connections>
                         <outlet property="cityLabel" destination="a23-5f-bSS" id="a40-2h-QOe"/>
                         <outlet property="favTeamTitle" destination="AEA-tP-XSq" id="TBo-OB-ODT"/>
+                        <outlet property="gameScoreLabel" destination="j8C-Kk-ca8" id="cmi-tb-p3Y"/>
                         <outlet property="gameStateLabel" destination="S4H-Uz-hga" id="fPb-ep-DDP"/>
                         <outlet property="periodLabel" destination="dNl-Ai-tdq" id="4fg-3i-tFk"/>
                         <outlet property="previousGameLabel" destination="olc-8M-a2g" id="4tt-j9-CMi"/>
