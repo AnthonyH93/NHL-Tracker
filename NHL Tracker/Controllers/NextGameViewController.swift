@@ -20,8 +20,10 @@ class NextGameViewController: UIViewController {
     @IBOutlet weak var vsLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var countdownLabel: UILabel!
-    @IBOutlet weak var untilNextGameLabel: UILabel!
+    @IBOutlet weak var score1Label: UILabel!
+    @IBOutlet weak var score2Label: UILabel!
+    @IBOutlet weak var periodLabel: UILabel!
+    @IBOutlet weak var gameStateLabel: UILabel!
     
     let dataPersistence = DataPersistence()
     let nhlApiServices = NHLApiServices()
@@ -36,7 +38,7 @@ class NextGameViewController: UIViewController {
         team2label.adjustsFontSizeToFitWidth = true
         
         //Hide for now, will need to unhide depending on API response
-        previousGameLabel.isHidden = true
+        //previousGameLabel.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +62,7 @@ class NextGameViewController: UIViewController {
                 //Check if there is a scheduled next game to display
                 if let nextGame = responseObject.teams[0].nextGameSchedule {
                     nextGameAvailable = true
-                    self.previousGameLabel.self.isHidden = true
+                    self.previousGameLabel.isHidden = true
                     
                     let homeGame = self.gameHelper.decideHomeOrAway(teams: nextGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
                     DispatchQueue.main.async {
@@ -101,7 +103,7 @@ class NextGameViewController: UIViewController {
                     
                     //Check if there is a previous game to display
                     if let previousGame = responseObject.teams[0].previousGameSchedule {
-                        self.previousGameLabel.self.isHidden = false
+                        self.previousGameLabel.isHidden = false
                         
                         let homeGame = self.gameHelper.decideHomeOrAway(teams: previousGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
                         DispatchQueue.main.async {
