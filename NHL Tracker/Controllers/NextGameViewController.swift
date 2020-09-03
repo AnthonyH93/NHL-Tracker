@@ -9,7 +9,7 @@
 import UIKit
 
 class NextGameViewController: UIViewController {
-
+    
     //MARK: Properties
     @IBOutlet weak var favTeamTitle: UILabel!
     @IBOutlet weak var previousGameLabel: UILabel!
@@ -41,8 +41,6 @@ class NextGameViewController: UIViewController {
         team1Label.adjustsFontSizeToFitWidth = true
         team2label.adjustsFontSizeToFitWidth = true
         
-        //Hide for now, will need to unhide depending on API response
-        //previousGameLabel.isHidden = true
         //Setup date formatter formats
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         dateFormatterPrint.dateFormat = "MMM dd, yyyy @HH:mm"
@@ -51,111 +49,142 @@ class NextGameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //UI element variables
+        var nextGameTeam1 = ""
+        var nextGameTeam2 = ""
+        var nextGameRecord1 = ""
+        var nextGameRecord2 = ""
+        var nextGameDate = ""
+        var nextGameVenue = ""
+        var nextGameIsHome = false
+        var prevGameTeam1 = ""
+        var prevGameTeam2 = ""
+        var prevGameRecord1 = ""
+        var prevGameRecord2 = ""
+        var prevGameDate = ""
+        var prevGameVenue = ""
+        var prevGameIsHome = false
+        
+        var nextGameAvailable = false
+        var prevGameAvailable = false
+        
         //Decide label initial values based on saved favourite team
         if let savedFavouriteTeam = dataPersistence.loadFavouriteNHLTeam() {
             let favouriteTeamName = savedFavouriteTeam.favouriteTeam
             
-            var nextGameAvailable = false
-            
             favTeamTitle.text = favouriteTeamName + " Next Game"
             favTeamTitle.textColor = .black
             
-            //Get the next game of the users favourite team
-            nhlApiServices.fetchNextGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
-                guard let responseObject = responseObject, error == nil else {
-                    print(error ?? "Unknown error")
-                    return
-                }
-                //Check if there is a scheduled next game to display
-                if let nextGame = responseObject.teams[0].nextGameSchedule {
-                    nextGameAvailable = true
-                    self.previousGameLabel.isHidden = true
-                    
-                    let homeGame = self.gameHelper.decideHomeOrAway(teams: nextGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
-                    DispatchQueue.main.async {
-                        self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
-                        self.cityLabel.text = "@" + nextGame.dates[0].games[0].venue.name
-                        
-                        //Format date to display on the screen
-                        if let date = self.dateFormatterGet.date(from: nextGame.dates[0].games[0].gameDate) {
-                            self.timeLabel.text = self.dateFormatterPrint.string(from: date)
-                        }
-                        
-                        if (homeGame) {
-                            //Bold home team
-                            self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-                            self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
-                            
-                            self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.away.team.name)
-                            self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
-                            self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
-                        }
-                        else {
-                            //Bold home team
-                            self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
-                            self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-                            
-                            self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.home.team.name)
-                            self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
-                            self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
-                        }
-                        
-                    }
-                }
-            }
+            let queue = OperationQueue()
             
-            //Fetch previous game if a next game is unavailable
-            if !nextGameAvailable {
-                //Get the previous game of the users favourite team
-                nhlApiServices.fetchPreviousGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
+            //Call both APIs first, then change UI elements based on responses
+            let operation1 = BlockOperation {
+                let group = DispatchGroup()
+                group.enter()
+                self.nhlApiServices.fetchNextGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
                     guard let responseObject = responseObject, error == nil else {
                         print(error ?? "Unknown error")
                         return
                     }
                     
+                    //Check if there is a scheduled next game to display
+                    if let nextGame = responseObject.teams[0].nextGameSchedule {
+                        nextGameAvailable = true
+                        nextGameIsHome = self.gameHelper.decideHomeOrAway(teams: nextGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
+                        nextGameTeam1 = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
+                        nextGameVenue = "@" + nextGame.dates[0].games[0].venue.name
+                        
+                        //Format date to display on the screen
+                        if let date = self.dateFormatterGet.date(from: nextGame.dates[0].games[0].gameDate) {
+                            nextGameDate = self.dateFormatterPrint.string(from: date)
+                        }
+                        if (nextGameIsHome) {
+                            nextGameTeam2 = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.away.team.name)
+                            nextGameRecord2 = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
+                            nextGameRecord1 = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
+                        }
+                        else {
+                            nextGameTeam2 = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.home.team.name)
+                            nextGameRecord2 = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.home.leagueRecord)
+                            nextGameRecord1 = self.gameHelper.formatRecord(leagueRecord: nextGame.dates[0].games[0].teams.away.leagueRecord)
+                        }
+                    }
+                    group.leave()
+                }
+                
+                group.enter()
+                //Get the previous game of the users favourite team
+                self.nhlApiServices.fetchPreviousGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
+                    guard let responseObject = responseObject, error == nil else {
+                        print(error ?? "Unknown error")
+                        return
+                    }
                     //Check if there is a previous game to display
                     if let previousGame = responseObject.teams[0].previousGameSchedule {
-                        self.previousGameLabel.isHidden = false
+                        prevGameAvailable = true
+                        prevGameIsHome = self.gameHelper.decideHomeOrAway(teams: previousGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
+                        prevGameTeam1 = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
+                        prevGameVenue = "@" + previousGame.dates[0].games[0].venue.name
                         
-                        let homeGame = self.gameHelper.decideHomeOrAway(teams: previousGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
-                        DispatchQueue.main.async {
-                            self.team1Label.text = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
-                            self.cityLabel.text = "@" + previousGame.dates[0].games[0].venue.name
-                            
-                            //Format date to display on the screen
-                            if let date = self.dateFormatterGet.date(from: previousGame.dates[0].games[0].gameDate) {
-                                self.timeLabel.text = self.dateFormatterPrint.string(from: date)
-                            }
-                            
-                            if (homeGame) {
-                                //Bold home team
-                                self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-                                self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
-                                
-                                self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.away.team.name)
-                                self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
-                                self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
-                            }
-                            else {
-                                //Bold home team
-                                self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
-                                self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-                                
-                                self.team2label.text = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.home.team.name)
-                                self.record2Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
-                                self.record1Label.text = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
-                            }
+                        //Format date to display on the screen
+                        if let date = self.dateFormatterGet.date(from: previousGame.dates[0].games[0].gameDate) {
+                            prevGameDate = self.dateFormatterPrint.string(from: date)
+                        }
+                        if (prevGameIsHome) {
+                            prevGameTeam2 = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.away.team.name)
+                            prevGameRecord2 = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
+                            prevGameRecord1 = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
+                        }
+                        else {
+                            prevGameTeam2 = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.home.team.name)
+                            prevGameRecord2 = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.home.leagueRecord)
+                            prevGameRecord1 = self.gameHelper.formatRecord(leagueRecord: previousGame.dates[0].games[0].teams.away.leagueRecord)
+                        }
+                    }
+                    group.leave()
+                }
+                group.wait()
+            }
+            
+            //Operation to update UI after API calls are complete
+            let operation2 = BlockOperation {
+                //Update UI based on the result of the API calls
+                DispatchQueue.main.async {
+                    //Prioritize next game if it is available
+                    if (nextGameAvailable){
+                        self.previousGameLabel.isHidden = true
+                        self.team1Label.text = nextGameTeam1
+                        self.team2label.text = nextGameTeam2
+                        self.record1Label.text = nextGameRecord1
+                        self.record2Label.text = nextGameRecord2
+                        self.timeLabel.text = nextGameDate
+                        self.cityLabel.text = nextGameVenue
+                    }
+                    else {
+                        if (prevGameAvailable){
+                            self.previousGameLabel.isHidden = false
+                            self.team1Label.text = prevGameTeam1
+                            self.team2label.text = prevGameTeam2
+                            self.record1Label.text = prevGameRecord1
+                            self.record2Label.text = prevGameRecord2
+                            self.timeLabel.text = prevGameDate
+                            self.cityLabel.text = prevGameVenue
                         }
                     }
                 }
             }
+            
+            //Block the UI updates until all API calls are finished
+            operation2.addDependency(operation1)
+            
+            //Add operations to the operation queue
+            queue.addOperation(operation1)
+            queue.addOperation(operation2)
+            
         }
         else {
             favTeamTitle.text = "Please select a favourite team"
             favTeamTitle.textColor = .systemRed
         }
     }
-
-
 }
-
