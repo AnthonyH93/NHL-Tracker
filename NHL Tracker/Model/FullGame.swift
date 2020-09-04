@@ -18,6 +18,7 @@ struct Date: Decodable {
 }
 
 struct Game: Decodable {
+    let gamePk: Int
     let gameType: String
     let season: String
     let gameDate: String
