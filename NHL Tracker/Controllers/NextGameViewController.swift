@@ -164,7 +164,7 @@ class NextGameViewController: UIViewController {
                         self.record2Label.text = nextGameRecord2
                         self.timeLabel.text = nextGameDate
                         self.cityLabel.text = nextGameVenue
-                        self.gameStateLabel.text = nextGameStatus
+                        self.gameStateLabel.text = self.gameHelper.fixStatusCode(statusCode: nextGameStatus)
                         
                         //Bold the home team
                         if (nextGameIsHome) {
@@ -185,7 +185,7 @@ class NextGameViewController: UIViewController {
                             self.record2Label.text = prevGameRecord2
                             self.timeLabel.text = prevGameDate
                             self.cityLabel.text = prevGameVenue
-                            self.gameStateLabel.text = prevGameStatus
+                            self.gameStateLabel.text = self.gameHelper.fixStatusCode(statusCode: prevGameStatus)
                             
                             //Bold the home team
                             if (prevGameIsHome) {

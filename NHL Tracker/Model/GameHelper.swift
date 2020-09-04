@@ -25,11 +25,22 @@ struct GameHelper {
         }
     }
     
+    //Function to format the wins, losses and overtime losses of a team into one string
     func formatRecord(leagueRecord: LeagueRecord) -> String {
         let wins = leagueRecord.wins
         let losses = leagueRecord.losses
         let ot = leagueRecord.ot
         
         return String("\(wins)-\(losses)-\(ot)")
+    }
+    
+    //Function to alter the returned statis code from the API into a more understandable format
+    func fixStatusCode(statusCode: String) -> String {
+        if (statusCode == "In Progress - Critical") {
+            return "In Overtime"
+        }
+        else {
+            return statusCode
+        }
     }
 }
