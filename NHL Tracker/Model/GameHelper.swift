@@ -36,8 +36,8 @@ struct GameHelper {
     
     //Function to alter the returned statis code from the API into a more understandable format
     func fixStatusCode(statusCode: String) -> String {
-        if (statusCode == "In Progress - Critical") {
-            return "Almost Final"
+        if (statusCode.contains("In Progress")) {
+            return "In Progress"
         }
         else {
             return statusCode

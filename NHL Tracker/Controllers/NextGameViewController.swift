@@ -216,7 +216,12 @@ class NextGameViewController: UIViewController {
                         self.timeLabel.text = nextGameDate
                         self.cityLabel.text = nextGameVenue
                         self.gameStateLabel.text = self.gameHelper.fixStatusCode(statusCode: nextGameStatus)
-                        self.periodLabel.text = currentPeriod + periodTimeLeft
+                        if (periodTimeLeft != "END") {
+                            self.periodLabel.text = currentPeriod + " period with " + periodTimeLeft + " remaining"
+                        }
+                        else {
+                            self.periodLabel.text = currentPeriod + " period " + periodTimeLeft.lowercased()
+                        }
                         
                         //Bold the home team
                         if (nextGameIsHome) {
