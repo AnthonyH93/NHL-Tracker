@@ -77,6 +77,7 @@ class NextGameViewController: UIViewController {
         var homeTeamScore = 0
         var awayTeamScore = 0
         var currentPeriod = ""
+        var periodTimeLeft = ""
         
         //Decide label initial values based on saved favourite team
         if let savedFavouriteTeam = dataPersistence.loadFavouriteNHLTeam() {
@@ -169,14 +170,14 @@ class NextGameViewController: UIViewController {
                     //Use the next game if it was found, score might not exist if the game hasn't started
                     self.nhlApiServices.fetchLineScore(teamPK: nextGamePK) { responseObject, error in
                         guard let responseObject = responseObject, error == nil else {
-                            print(error ?? "Unknown error with previous game")
+                            print(error ?? "Unknown error with line score")
                             return
                         }
-                        print(responseObject)
                         //Use the response object and extract data needed
                         homeTeamScore = responseObject.teams.home.goals
                         awayTeamScore = responseObject.teams.away.goals
-                        currentPeriod = responseObject.currentPeriodOrdinal
+                        currentPeriod = responseObject.currentPeriodOrdinal ?? ""
+                        periodTimeLeft = responseObject.currentPeriodTimeRemaining ?? ""
                         group.leave()
                     }
                     group.wait()
@@ -187,14 +188,13 @@ class NextGameViewController: UIViewController {
                         //Use the previous game if the next game was not found and the previous game was found
                         self.nhlApiServices.fetchLineScore(teamPK: prevGamePK) { responseObject, error in
                             guard let responseObject = responseObject, error == nil else {
-                                print(error ?? "Unknown error with previous game")
+                                print(error ?? "Unknown error with line score")
                                 return
                             }
-                            print(responseObject)
                             //Use the response object and extract data needed
                             homeTeamScore = responseObject.teams.home.goals
                             awayTeamScore = responseObject.teams.away.goals
-                            currentPeriod = responseObject.currentPeriodOrdinal
+                            currentPeriod = responseObject.currentPeriodOrdinal ?? ""
                             group.leave()
                         }
                         group.wait()
@@ -216,7 +216,7 @@ class NextGameViewController: UIViewController {
                         self.timeLabel.text = nextGameDate
                         self.cityLabel.text = nextGameVenue
                         self.gameStateLabel.text = self.gameHelper.fixStatusCode(statusCode: nextGameStatus)
-                        self.periodLabel.text = currentPeriod
+                        self.periodLabel.text = currentPeriod + periodTimeLeft
                         
                         //Bold the home team
                         if (nextGameIsHome) {

@@ -10,8 +10,8 @@ import Foundation
 
 struct LineScore: Decodable {
     let currentPeriod: Int
-    let currentPeriodOrdinal: String
-    let currentPeriodTimeRemaining: String
+    let currentPeriodOrdinal: String?
+    let currentPeriodTimeRemaining: String?
     let teams: LineScoreTeams
 }
 

@@ -77,7 +77,6 @@ struct NHLApiServices {
         let urlString = "https://statsapi.web.nhl.com/api/v1/game/" + String(teamPK) + "/linescore"
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
-        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             //Make sure there is data
             guard let data = data,
@@ -89,7 +88,6 @@ struct NHLApiServices {
                     completion(nil, error)
                     return
             }
-
             let responseObject = (try? JSONDecoder().decode(LineScore.self, from: data))
             completion(responseObject, nil)
         }
