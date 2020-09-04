@@ -57,6 +57,8 @@ class NextGameViewController: UIViewController {
         var nextGameDate = ""
         var nextGameVenue = ""
         var nextGameIsHome = false
+        var nextGameStatus = ""
+        
         var prevGameTeam1 = ""
         var prevGameTeam2 = ""
         var prevGameRecord1 = ""
@@ -64,6 +66,7 @@ class NextGameViewController: UIViewController {
         var prevGameDate = ""
         var prevGameVenue = ""
         var prevGameIsHome = false
+        var prevGameStatus = ""
         
         var nextGameAvailable = false
         var prevGameAvailable = false
@@ -83,7 +86,7 @@ class NextGameViewController: UIViewController {
                 group.enter()
                 self.nhlApiServices.fetchNextGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
                     guard let responseObject = responseObject, error == nil else {
-                        print(error ?? "Unknown error")
+                        print(error ?? "Unknown error with next game")
                         return
                     }
                     
@@ -93,6 +96,7 @@ class NextGameViewController: UIViewController {
                         nextGameIsHome = self.gameHelper.decideHomeOrAway(teams: nextGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
                         nextGameTeam1 = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
                         nextGameVenue = "@" + nextGame.dates[0].games[0].venue.name
+                        nextGameStatus = nextGame.dates[0].games[0].status.detailedState
                         
                         //Format date to display on the screen
                         if let date = self.dateFormatterGet.date(from: nextGame.dates[0].games[0].gameDate) {
@@ -116,7 +120,7 @@ class NextGameViewController: UIViewController {
                 //Get the previous game of the users favourite team
                 self.nhlApiServices.fetchPreviousGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
                     guard let responseObject = responseObject, error == nil else {
-                        print(error ?? "Unknown error")
+                        print(error ?? "Unknown error with previous game")
                         return
                     }
                     //Check if there is a previous game to display
@@ -125,6 +129,7 @@ class NextGameViewController: UIViewController {
                         prevGameIsHome = self.gameHelper.decideHomeOrAway(teams: previousGame.dates[0].games[0].teams, favTeam: favouriteTeamName)
                         prevGameTeam1 = self.teamConversions.teamNameToShortName(teamToConvert: favouriteTeamName)
                         prevGameVenue = "@" + previousGame.dates[0].games[0].venue.name
+                        prevGameStatus = previousGame.dates[0].games[0].status.detailedState
                         
                         //Format date to display on the screen
                         if let date = self.dateFormatterGet.date(from: previousGame.dates[0].games[0].gameDate) {
@@ -159,6 +164,7 @@ class NextGameViewController: UIViewController {
                         self.record2Label.text = nextGameRecord2
                         self.timeLabel.text = nextGameDate
                         self.cityLabel.text = nextGameVenue
+                        self.gameStateLabel.text = nextGameStatus
                         
                         //Bold the home team
                         if (nextGameIsHome) {
@@ -179,6 +185,7 @@ class NextGameViewController: UIViewController {
                             self.record2Label.text = prevGameRecord2
                             self.timeLabel.text = prevGameDate
                             self.cityLabel.text = prevGameVenue
+                            self.gameStateLabel.text = prevGameStatus
                             
                             //Bold the home team
                             if (prevGameIsHome) {

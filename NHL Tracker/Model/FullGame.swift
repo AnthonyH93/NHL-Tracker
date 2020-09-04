@@ -21,8 +21,17 @@ struct Game: Decodable {
     let gameType: String
     let season: String
     let gameDate: String
+    let status: Status
     let teams: Teams
     let venue: Venue
+}
+
+struct Status: Decodable {
+    let abstractGameState: String
+    let codedGameState: String
+    let detailedState: String
+    let statusCode: String
+    let startTimeTBD: Bool
 }
 
 struct Teams: Decodable {
