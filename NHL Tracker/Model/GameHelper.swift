@@ -17,6 +17,10 @@ struct GameHelper {
             return true
         }
         else {
+            //Handle API issues with Montreal team name and accent
+            if ((homeTeamName == "Montréal Canadiens" || homeTeamName == "Montréal Canadians") && favTeam == "Montreal Canadians") {
+                return true
+            }
             return false
         }
     }
