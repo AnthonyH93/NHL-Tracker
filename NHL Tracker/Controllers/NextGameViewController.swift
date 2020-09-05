@@ -229,6 +229,8 @@ class NextGameViewController: UIViewController {
             let operation3 = BlockOperation {
                 //Update UI based on the result of the API calls
                 DispatchQueue.main.async {
+                    //Setup the button colours for the empty net and power play buttons
+                    self.setupButtonColours(nextGameHome: nextGameIsHome, nextGameFound: nextGameAvailable, homeEN: homeTeamEN, awayEN: awayTeamEN, homePP: homeTeamPP, awayPP: awayTeamPP)
                     //Prioritize next game if it is available
                     if (nextGameAvailable){
                         self.previousGameLabel.isHidden = true
@@ -240,14 +242,21 @@ class NextGameViewController: UIViewController {
                         self.timeLabel.text = nextGameDate
                         self.cityLabel.text = nextGameVenue
                         self.gameStateLabel.text = self.gameHelper.fixStatusCode(statusCode: nextGameStatus)
-                        if (periodTimeLeft != "END") {
-                            self.periodLabel.text = currentPeriod + " period with " + periodTimeLeft + " remaining"
+                        
+                        //If the game has not started than there will not be a current perioud
+                        if (currentPeriod != "") {
+                            if (periodTimeLeft != "END") {
+                                self.periodLabel.text = currentPeriod + " period with " + periodTimeLeft + " remaining"
+                            }
+                            else {
+                                self.periodLabel.text = currentPeriod + " period " + periodTimeLeft.lowercased()
+                            }
                         }
                         else {
-                            self.periodLabel.text = currentPeriod + " period " + periodTimeLeft.lowercased()
+                            self.periodLabel.text = ""
                         }
                         
-                        //Bold the home team
+                        //Bold the home team and set scores and shots
                         if (nextGameIsHome) {
                             self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
                             self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
@@ -312,6 +321,75 @@ class NextGameViewController: UIViewController {
         else {
             favTeamTitle.text = "Please select a favourite team"
             favTeamTitle.textColor = .systemRed
+        }
+    }
+    
+    //MARK: Private Functions
+    //Function to setup the colour of the empty net and power play buttons
+    private func setupButtonColours(nextGameHome: Bool, nextGameFound: Bool, homeEN: Bool, awayEN: Bool, homePP: Bool, awayPP: Bool) -> Void {
+        if (nextGameFound) {
+            if (nextGameHome) {
+                //Series of switch statements to decide the background colours of the buttons
+                switch homePP {
+                case true:
+                    powerPlayButton1.backgroundColor = UIColor.systemGreen
+                default:
+                    powerPlayButton1.backgroundColor = UIColor.darkGray
+                }
+                switch awayPP {
+                case true:
+                    powerPlayButton2.backgroundColor = UIColor.systemGreen
+                default:
+                    powerPlayButton2.backgroundColor = UIColor.darkGray
+                }
+                switch homeEN {
+                case true:
+                    emptyNetButton1.backgroundColor = UIColor.systemGreen
+                default:
+                    emptyNetButton1.backgroundColor = UIColor.darkGray
+                }
+                switch awayPP {
+                case true:
+                    emptyNetButton2.backgroundColor = UIColor.systemGreen
+                default:
+                    emptyNetButton2.backgroundColor = UIColor.darkGray
+                }
+            }
+            //Next game is away
+            else {
+                //Series of switch statements to decide the background colours of the buttons
+                switch homePP {
+                case true:
+                    powerPlayButton2.backgroundColor = UIColor.systemGreen
+                default:
+                    powerPlayButton2.backgroundColor = UIColor.darkGray
+                }
+                switch awayPP {
+                case true:
+                    powerPlayButton1.backgroundColor = UIColor.systemGreen
+                default:
+                    powerPlayButton1.backgroundColor = UIColor.darkGray
+                }
+                switch homeEN {
+                case true:
+                    emptyNetButton2.backgroundColor = UIColor.systemGreen
+                default:
+                    emptyNetButton2.backgroundColor = UIColor.darkGray
+                }
+                switch awayPP {
+                case true:
+                    emptyNetButton1.backgroundColor = UIColor.systemGreen
+                default:
+                    emptyNetButton1.backgroundColor = UIColor.darkGray
+                }
+            }
+        }
+        //If there is no next game then all buttons should be gray as once a game is over the empty net and power play will be false
+        else {
+            powerPlayButton1.backgroundColor = UIColor.darkGray
+            powerPlayButton2.backgroundColor = UIColor.darkGray
+            emptyNetButton1.backgroundColor = UIColor.darkGray
+            emptyNetButton2.backgroundColor = UIColor.darkGray
         }
     }
 }
