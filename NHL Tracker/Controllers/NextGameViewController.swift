@@ -121,7 +121,7 @@ class NextGameViewController: UIViewController {
                         
                         //Format date to display on the screen
                         if let date = self.dateFormatterGet.date(from: nextGame.dates[0].games[0].gameDate) {
-                            nextGameDate = self.dateFormatterPrint.string(from: date)
+                            nextGameDate = self.dateFormatterPrint.string(from: date) + " EST"
                         }
                         if (nextGameIsHome) {
                             nextGameTeam2 = self.teamConversions.teamNameToShortName(teamToConvert: nextGame.dates[0].games[0].teams.away.team.name)
@@ -155,7 +155,7 @@ class NextGameViewController: UIViewController {
                         
                         //Format date to display on the screen
                         if let date = self.dateFormatterGet.date(from: previousGame.dates[0].games[0].gameDate) {
-                            prevGameDate = self.dateFormatterPrint.string(from: date)
+                            prevGameDate = self.dateFormatterPrint.string(from: date) + " EST"
                         }
                         if (prevGameIsHome) {
                             prevGameTeam2 = self.teamConversions.teamNameToShortName(teamToConvert: previousGame.dates[0].games[0].teams.away.team.name)
