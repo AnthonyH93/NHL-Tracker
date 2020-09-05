@@ -25,6 +25,12 @@ class NextGameViewController: UIViewController {
     @IBOutlet weak var periodLabel: UILabel!
     @IBOutlet weak var gameStateLabel: UILabel!
     @IBOutlet weak var gameScoreLabel: UILabel!
+    @IBOutlet weak var shotsOnGoal1Label: UILabel!
+    @IBOutlet weak var shotsOnGoal2Label: UILabel!
+    @IBOutlet weak var powerPlayButton1: UIButton!
+    @IBOutlet weak var powerPlayButton2: UIButton!
+    @IBOutlet weak var emptyNetButton1: UIButton!
+    @IBOutlet weak var emptyNetButton2: UIButton!
     
     let dataPersistence = DataPersistence()
     let nhlApiServices = NHLApiServices()
@@ -76,6 +82,12 @@ class NextGameViewController: UIViewController {
         
         var homeTeamScore = 0
         var awayTeamScore = 0
+        var homeTeamSOG = 0
+        var awayTeamSOG = 0
+        var homeTeamPP = false
+        var awayTeamPP = false
+        var homeTeamEN = false
+        var awayTeamEN = false
         var currentPeriod = ""
         var periodTimeLeft = ""
         
@@ -178,6 +190,12 @@ class NextGameViewController: UIViewController {
                         awayTeamScore = responseObject.teams.away.goals
                         currentPeriod = responseObject.currentPeriodOrdinal ?? ""
                         periodTimeLeft = responseObject.currentPeriodTimeRemaining ?? ""
+                        homeTeamSOG = responseObject.teams.home.shotsOnGoal
+                        awayTeamSOG = responseObject.teams.away.shotsOnGoal
+                        homeTeamPP = responseObject.teams.home.powerPlay
+                        awayTeamPP = responseObject.teams.away.powerPlay
+                        homeTeamEN = responseObject.teams.home.goaliePulled
+                        awayTeamEN = responseObject.teams.away.goaliePulled
                         group.leave()
                     }
                     group.wait()
@@ -195,6 +213,12 @@ class NextGameViewController: UIViewController {
                             homeTeamScore = responseObject.teams.home.goals
                             awayTeamScore = responseObject.teams.away.goals
                             currentPeriod = responseObject.currentPeriodOrdinal ?? ""
+                            homeTeamSOG = responseObject.teams.home.shotsOnGoal
+                            awayTeamSOG = responseObject.teams.away.shotsOnGoal
+                            homeTeamPP = responseObject.teams.home.powerPlay
+                            awayTeamPP = responseObject.teams.away.powerPlay
+                            homeTeamEN = responseObject.teams.home.goaliePulled
+                            awayTeamEN = responseObject.teams.away.goaliePulled
                             group.leave()
                         }
                         group.wait()
@@ -227,14 +251,18 @@ class NextGameViewController: UIViewController {
                         if (nextGameIsHome) {
                             self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
                             self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
-                            self.score1Label.text = String(homeTeamScore)
-                            self.score2Label.text = String(awayTeamScore)
+                            self.score1Label.text = "\(homeTeamScore)"
+                            self.score2Label.text = "\(awayTeamScore)"
+                            self.shotsOnGoal1Label.text = "\(homeTeamSOG) SOG"
+                            self.shotsOnGoal2Label.text = "\(awayTeamSOG) SOG"
                         }
                         else {
                             self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
                             self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-                            self.score1Label.text = String(awayTeamScore)
-                            self.score2Label.text = String(homeTeamScore)
+                            self.score1Label.text = "\(awayTeamScore)"
+                            self.score2Label.text = "\(homeTeamScore)"
+                            self.shotsOnGoal1Label.text = "\(awayTeamSOG) SOG"
+                            self.shotsOnGoal2Label.text = "\(homeTeamSOG) SOG"
                         }
                     }
                     else {
@@ -255,12 +283,16 @@ class NextGameViewController: UIViewController {
                                 self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
                                 self.score1Label.text = "\(homeTeamScore)"
                                 self.score2Label.text = "\(awayTeamScore)"
+                                self.shotsOnGoal1Label.text = "\(homeTeamSOG) SOG"
+                                self.shotsOnGoal2Label.text = "\(awayTeamSOG) SOG"
                             }
                             else {
                                 self.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
                                 self.team2label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
                                 self.score1Label.text = "\(awayTeamScore)"
                                 self.score2Label.text = "\(homeTeamScore)"
+                                self.shotsOnGoal1Label.text = "\(awayTeamSOG) SOG"
+                                self.shotsOnGoal2Label.text = "\(homeTeamSOG) SOG"
                             }
                         }
                     }
