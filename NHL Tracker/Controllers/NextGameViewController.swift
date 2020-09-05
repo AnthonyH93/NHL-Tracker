@@ -96,7 +96,7 @@ class NextGameViewController: UIViewController {
             let favouriteTeamName = savedFavouriteTeam.favouriteTeam
             
             favTeamTitle.text = favouriteTeamName + " Next Game"
-            favTeamTitle.textColor = .black
+            favTeamTitle.textColor = .label
             
             let queue = OperationQueue()
             
@@ -275,6 +275,7 @@ class NextGameViewController: UIViewController {
                         }
                     }
                     else {
+                        self.favTeamTitle.text = favouriteTeamName + " Previous Game"
                         if (prevGameAvailable){
                             self.previousGameLabel.isHidden = false
                             self.periodLabel.isHidden = true
