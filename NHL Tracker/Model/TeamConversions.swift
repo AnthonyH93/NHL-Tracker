@@ -32,6 +32,8 @@ struct TeamConversions {
             teamID = 7
         case "Montreal Canadians":
             teamID = 8
+        case "Montréal Canadiens":
+            teamID = 8
         case "Ottawa Senators":
             teamID = 9
         case "Toronto Maple Leafs":
@@ -122,6 +124,8 @@ struct TeamConversions {
             teamIndex = 14
         case "Montreal Canadians":
             teamIndex = 15
+        case "Montréal Canadiens":
+            teamIndex = 15
         case "Nashville Predators":
             teamIndex = 16
         case "New Jersey Devils":
@@ -195,6 +199,8 @@ struct TeamConversions {
         case "Minnesota Wild":
             teamSN = "MIN"
         case "Montreal Canadians":
+            teamSN = "MTL"
+        case "Montréal Canadiens":
             teamSN = "MTL"
         case "Nashville Predators":
             teamSN = "NSH"
