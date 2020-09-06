@@ -27,6 +27,7 @@
 		9D95D4D224FC5C3600F48BE7 /* FavouriteNHLTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */; };
 		9D95D4D424FC5E8400F48BE7 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */; };
 		9D95D4D624FC659E00F48BE7 /* TeamConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */; };
+		9DF9053925049EB500A81241 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9053825049EB500A81241 /* Season.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteNHLTeam.swift; sourceTree = "<group>"; };
 		9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamConversions.swift; sourceTree = "<group>"; };
+		9DF9053825049EB500A81241 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				9D3634C924FF6B5C00C192F9 /* NextGame.swift */,
 				9D3634C524FF4C0C00C192F9 /* PreviousGame.swift */,
 				9D57351E2501EC16009386B0 /* LineScore.swift */,
+				9DF9053825049EB500A81241 /* Season.swift */,
 				9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */,
 				9D3634CB24FF74EE00C192F9 /* GameHelper.swift */,
 			);
@@ -295,6 +298,7 @@
 				9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */,
 				9D57351F2501EC16009386B0 /* LineScore.swift in Sources */,
 				9D95D4D224FC5C3600F48BE7 /* FavouriteNHLTeam.swift in Sources */,
+				9DF9053925049EB500A81241 /* Season.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

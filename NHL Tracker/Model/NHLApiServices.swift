@@ -93,4 +93,25 @@ struct NHLApiServices {
         }
         task.resume()
     }
+    
+    //API call to get information about the current season
+    func fetchCurrentSeason(completion: @escaping (SeasonResponse?, Error?) -> Void) {
+        let url = URL(string: "https://statsapi.web.nhl.com/api/v1/seasons/current")
+        let request = URLRequest(url: url!)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            //Make sure there is data
+            guard let data = data,
+                let response = response as? HTTPURLResponse,
+                //Make sure the status code is OK
+                (200 ..< 300) ~= response.statusCode,
+                //Make sure there is no error
+                error == nil else {
+                    completion(nil, error)
+                    return
+            }
+            let responseObject = (try? JSONDecoder().decode(SeasonResponse.self, from: data))
+            completion(responseObject, nil)
+        }
+        task.resume()
+    }
 }
