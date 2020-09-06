@@ -31,6 +31,10 @@ class NextGameViewController: UIViewController {
     @IBOutlet weak var powerPlayButton2: UIButton!
     @IBOutlet weak var emptyNetButton1: UIButton!
     @IBOutlet weak var emptyNetButton2: UIButton!
+    @IBOutlet weak var powerPlayLabel1: UILabel!
+    @IBOutlet weak var emptyNetLabel1: UILabel!
+    @IBOutlet weak var powerPlayLabel2: UILabel!
+    @IBOutlet weak var emptyNetLabel2: UILabel!
     
     let dataPersistence = DataPersistence()
     let nhlApiServices = NHLApiServices()
@@ -229,8 +233,6 @@ class NextGameViewController: UIViewController {
             let operation3 = BlockOperation {
                 //Update UI based on the result of the API calls
                 DispatchQueue.main.async {
-                    //Setup the button colours for the empty net and power play buttons
-                    self.setupButtonColours(nextGameHome: nextGameIsHome, nextGameFound: nextGameAvailable, homeEN: homeTeamEN, awayEN: awayTeamEN, homePP: homeTeamPP, awayPP: awayTeamPP)
                     //Prioritize next game if it is available
                     if (nextGameAvailable){
                         self.previousGameLabel.isHidden = true
@@ -245,6 +247,17 @@ class NextGameViewController: UIViewController {
                         
                         //If the game has not started than there will not be a current perioud
                         if (currentPeriod != "") {
+                            //If game is in progress then buttons and their labels should not be hidden
+                            self.powerPlayButton1.isHidden = false
+                            self.powerPlayButton2.isHidden = false
+                            self.emptyNetButton1.isHidden = false
+                            self.emptyNetButton2.isHidden = false
+                            self.powerPlayLabel1.isHidden = false
+                            self.powerPlayLabel2.isHidden = false
+                            self.emptyNetLabel1.isHidden = false
+                            self.emptyNetLabel2.isHidden = false
+                            //Setup the button colours for the empty net and power play buttons
+                            self.setupButtonColours(nextGameHome: nextGameIsHome, nextGameFound: nextGameAvailable, homeEN: homeTeamEN, awayEN: awayTeamEN, homePP: homeTeamPP, awayPP: awayTeamPP)
                             if (periodTimeLeft != "END") {
                                 self.periodLabel.text = currentPeriod + " period with " + periodTimeLeft + " remaining"
                             }
@@ -254,6 +267,15 @@ class NextGameViewController: UIViewController {
                         }
                         else {
                             self.periodLabel.text = ""
+                            //Buttons  and their labelsshould be hidden if the game is not in progress
+                            self.powerPlayButton1.isHidden = true
+                            self.powerPlayButton2.isHidden = true
+                            self.emptyNetButton1.isHidden = true
+                            self.emptyNetButton2.isHidden = true
+                            self.powerPlayLabel1.isHidden = true
+                            self.powerPlayLabel2.isHidden = true
+                            self.emptyNetLabel1.isHidden = true
+                            self.emptyNetLabel2.isHidden = true
                         }
                         
                         //Bold the home team and set scores and shots

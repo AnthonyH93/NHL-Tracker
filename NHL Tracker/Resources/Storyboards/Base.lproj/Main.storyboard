@@ -88,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V88-Od-Gum">
-                                <rect key="frame" x="216.66666666666663" y="449" width="142.33333333333337" height="53"/>
+                                <rect key="frame" x="216.33333333333337" y="449" width="142.66666666666663" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -112,7 +112,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sA-KV-SoR">
-                                <rect key="frame" x="177.66666666666666" y="449" width="20" height="53"/>
+                                <rect key="frame" x="177.66666666666666" y="449" width="19.666666666666657" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -323,12 +323,16 @@
                         <outlet property="cityLabel" destination="a23-5f-bSS" id="a40-2h-QOe"/>
                         <outlet property="emptyNetButton1" destination="gHG-zL-3WB" id="7bh-pp-92g"/>
                         <outlet property="emptyNetButton2" destination="1Ck-sM-vEu" id="1NZ-yY-9JS"/>
+                        <outlet property="emptyNetLabel1" destination="RLi-Rh-u6l" id="bbF-a4-YiE"/>
+                        <outlet property="emptyNetLabel2" destination="Vri-IC-9BA" id="TdF-Ep-Qhj"/>
                         <outlet property="favTeamTitle" destination="AEA-tP-XSq" id="TBo-OB-ODT"/>
                         <outlet property="gameScoreLabel" destination="j8C-Kk-ca8" id="cmi-tb-p3Y"/>
                         <outlet property="gameStateLabel" destination="S4H-Uz-hga" id="fPb-ep-DDP"/>
                         <outlet property="periodLabel" destination="dNl-Ai-tdq" id="4fg-3i-tFk"/>
                         <outlet property="powerPlayButton1" destination="OfQ-3A-NFq" id="nAN-LZ-6aj"/>
                         <outlet property="powerPlayButton2" destination="PUu-Au-TJZ" id="Cgb-oP-65C"/>
+                        <outlet property="powerPlayLabel1" destination="vgS-gy-IVR" id="nxF-AM-ty1"/>
+                        <outlet property="powerPlayLabel2" destination="MDA-aw-2HC" id="0Pb-GF-wTC"/>
                         <outlet property="previousGameLabel" destination="olc-8M-a2g" id="4tt-j9-CMi"/>
                         <outlet property="record1Label" destination="Xcd-MZ-9Z2" id="tk5-m8-n3x"/>
                         <outlet property="record2Label" destination="5j7-NU-WCv" id="iBJ-m0-IUU"/>
