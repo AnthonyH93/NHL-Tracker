@@ -13,7 +13,7 @@ struct SeasonResponse: Decodable {
 }
 
 struct Season: Decodable {
-    let seasonID: String
+    let seasonId: String
     let regularSeasonStartDate: String
     let regularSeasonEndDate: String
     let numberOfGames: Int
