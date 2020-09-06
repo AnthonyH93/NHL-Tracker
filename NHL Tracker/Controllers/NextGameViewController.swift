@@ -233,6 +233,15 @@ class NextGameViewController: UIViewController {
             let operation3 = BlockOperation {
                 //Update UI based on the result of the API calls
                 DispatchQueue.main.async {
+                    //Buttons and their labels should be hidden if the game is not in progress - will make them visible if game is in progress
+                    self.powerPlayButton1.isHidden = true
+                    self.powerPlayButton2.isHidden = true
+                    self.emptyNetButton1.isHidden = true
+                    self.emptyNetButton2.isHidden = true
+                    self.powerPlayLabel1.isHidden = true
+                    self.powerPlayLabel2.isHidden = true
+                    self.emptyNetLabel1.isHidden = true
+                    self.emptyNetLabel2.isHidden = true
                     //Prioritize next game if it is available
                     if (nextGameAvailable){
                         self.previousGameLabel.isHidden = true
@@ -267,15 +276,6 @@ class NextGameViewController: UIViewController {
                         }
                         else {
                             self.periodLabel.text = ""
-                            //Buttons  and their labelsshould be hidden if the game is not in progress
-                            self.powerPlayButton1.isHidden = true
-                            self.powerPlayButton2.isHidden = true
-                            self.emptyNetButton1.isHidden = true
-                            self.emptyNetButton2.isHidden = true
-                            self.powerPlayLabel1.isHidden = true
-                            self.powerPlayLabel2.isHidden = true
-                            self.emptyNetLabel1.isHidden = true
-                            self.emptyNetLabel2.isHidden = true
                         }
                         
                         //Bold the home team and set scores and shots
