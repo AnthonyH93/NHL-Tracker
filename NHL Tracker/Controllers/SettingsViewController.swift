@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var updateFavouriteTeamBtn: UIButton!
     
     //MARK: Variables
-    var pickerData: [String] = [String]()
+    private var pickerData: [String] = [String]()
     
     let constants = NHLTrackerConstants()
     let dataPersistence = DataPersistence()
