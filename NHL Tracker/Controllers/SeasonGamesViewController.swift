@@ -22,6 +22,12 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         //Need to call API here to setup for the table view data
         if let savedFavouriteTeam = dataPersistence.loadFavouriteNHLTeam() {
             let favouriteTeamName = savedFavouriteTeam.favouriteTeam
@@ -60,7 +66,10 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                     }
                     
                     let seasonGames = responseObject.dates
-                    print(seasonGames.count)
+                    
+                    if (self.tableTeams.count > 0) {
+                        self.tableTeams.removeAll()
+                    }
                     
                     for i in 0 ..< seasonGames.count {
                         self.tableTeams.append(seasonGames[i].games[0].teams.home.team.name)
@@ -71,14 +80,14 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                 group.wait()
             }
             
-            //Setup the table view only after the API calls are finished so that the data is useable
+            //Reload table data once we are sure that it is set up
             let operation3 = BlockOperation {
                 DispatchQueue.main.async {
-                    self.tableView.dataSource = self
+                    self.tableView.reloadData()
                 }
             }
             
-            //Block the UI updates until all API calls are finished
+            //Block the operations that depend on the results of others
             operation2.addDependency(operation1)
             operation3.addDependency(operation2)
             
@@ -87,10 +96,6 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
             queue.addOperation(operation2)
             queue.addOperation(operation3)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     //MARK: Table View Functions
