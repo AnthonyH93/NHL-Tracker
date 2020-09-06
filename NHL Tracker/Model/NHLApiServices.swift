@@ -116,13 +116,13 @@ struct NHLApiServices {
     }
     
     //API call to get the next game for a specified teamID
-    func fetchSeasonGames(teamID: Int64, startDate: String, endDate: String, completion: @escaping (SeasonGames?, Error?) -> Void) {
-        let params = ["expand": teamID, "startDate": startDate, "endDate": endDate] as [String : Any]
+    func fetchSeasonGames(teamID: Int64, startDate: String, endDate: String, completion: @escaping (FullGame?, Error?) -> Void) {
+        let params = ["teamId": String(teamID), "startDate": startDate, "endDate": endDate]
         let url = "https://statsapi.web.nhl.com/api/v1/schedule"
         
         var components = URLComponents(string: url)!
         components.queryItems = params.map { (key, value) in
-            URLQueryItem(name: key, value: value as? String)
+            URLQueryItem(name: key, value: value as String)
         }
         
         components.percentEncodedQuery = components.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
@@ -140,7 +140,7 @@ struct NHLApiServices {
                     return
             }
 
-            let responseObject = (try? JSONDecoder().decode(SeasonGames.self, from: data))
+            let responseObject = (try? JSONDecoder().decode(FullGame.self, from: data))
             completion(responseObject, nil)
         }
         task.resume()
