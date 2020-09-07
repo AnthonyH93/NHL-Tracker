@@ -8,7 +8,9 @@
 
 import Foundation
 
+//Struct of helper functions for games in the next game view
 struct GameHelper {
+    
     //Returns true if home game for favourite team, false if away game for favourite team
     func decideHomeOrAway(teams: Teams, favTeam: String) -> Bool {
         let homeTeamName = teams.home.team.name

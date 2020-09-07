@@ -29,6 +29,7 @@
 		9D95D4D624FC659E00F48BE7 /* TeamConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */; };
 		9DF9053925049EB500A81241 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9053825049EB500A81241 /* Season.swift */; };
 		9DFBFCF82506E16E00304D6F /* SeasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */; };
+		9DFBFCFB2506E77D00304D6F /* SeasonGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCFA2506E77D00304D6F /* SeasonGameTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamConversions.swift; sourceTree = "<group>"; };
 		9DF9053825049EB500A81241 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonHelper.swift; sourceTree = "<group>"; };
+		9DFBFCFA2506E77D00304D6F /* SeasonGameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonGameTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 		9D95D4D924FC846B00F48BE7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9DFBFCFA2506E77D00304D6F /* SeasonGameTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */,
 				9D95D4D624FC659E00F48BE7 /* TeamConversions.swift in Sources */,
 				9D3634C424FF4BF900C192F9 /* FullGame.swift in Sources */,
+				9DFBFCFB2506E77D00304D6F /* SeasonGameTableViewCell.swift in Sources */,
 				9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */,
 				9D3634C624FF4C0C00C192F9 /* PreviousGame.swift in Sources */,
 				9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */,

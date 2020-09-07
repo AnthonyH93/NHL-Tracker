@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Struct of helper functions for the season games view
 struct SeasonHelper {
 
     //Function to format seasonID returned from api
