@@ -132,15 +132,11 @@
 		9D95D4D724FC844600F48BE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9DFBFCF92506E69400304D6F /* APIResponseModels */,
 				9D95D4CF24FB223300F48BE7 /* Constants.swift */,
 				9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */,
 				9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */,
 				9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */,
-				9D3634C324FF4BF900C192F9 /* FullGame.swift */,
-				9D3634C924FF6B5C00C192F9 /* NextGame.swift */,
-				9D3634C524FF4C0C00C192F9 /* PreviousGame.swift */,
-				9D57351E2501EC16009386B0 /* LineScore.swift */,
-				9DF9053825049EB500A81241 /* Season.swift */,
 				9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */,
 				9D3634CB24FF74EE00C192F9 /* GameHelper.swift */,
 				9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */,
@@ -182,6 +178,18 @@
 				9D95D4B624FB19C900F48BE7 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		9DFBFCF92506E69400304D6F /* APIResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				9D3634C324FF4BF900C192F9 /* FullGame.swift */,
+				9D57351E2501EC16009386B0 /* LineScore.swift */,
+				9D3634C924FF6B5C00C192F9 /* NextGame.swift */,
+				9D3634C524FF4C0C00C192F9 /* PreviousGame.swift */,
+				9DF9053825049EB500A81241 /* Season.swift */,
+			);
+			path = APIResponseModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
