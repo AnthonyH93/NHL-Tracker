@@ -15,9 +15,13 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     
     //MARK: Variables
     private var tableTeams: [String] = []
+    private var favouriteTeamName: String = ""
+    private var currentSeason: String = ""
+    
     let dataPersistence = DataPersistence()
     let nhlApiServices = NHLApiServices()
     let teamConversions = TeamConversions()
+    let seasonHelper = SeasonHelper()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +34,7 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
         
         //Need to call API here to setup for the table view data
         if let savedFavouriteTeam = dataPersistence.loadFavouriteNHLTeam() {
-            let favouriteTeamName = savedFavouriteTeam.favouriteTeam
+            favouriteTeamName = savedFavouriteTeam.favouriteTeam
             var seasonStartDate = ""
             var seasonEndDate = ""
             var seasonGames = 0
@@ -50,6 +54,7 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                     seasonStartDate = responseObject.seasons[0].regularSeasonStartDate
                     seasonEndDate = responseObject.seasons[0].regularSeasonEndDate
                     seasonGames = responseObject.seasons[0].numberOfGames
+                    self.currentSeason = self.seasonHelper.formatSeasonID(seasonID: responseObject.seasons[0].seasonId)
                     group.leave()
                 }
                 group.wait()
@@ -115,5 +120,12 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = text
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let teamAndSeason = "\(favouriteTeamName) \(currentSeason)"
+        //Choose games or schedule as part of the title depending on the team name and season length
+        let title = self.seasonHelper.formatSectionTitle(teamAndSeason: teamAndSeason)
+        return title
     }
 }

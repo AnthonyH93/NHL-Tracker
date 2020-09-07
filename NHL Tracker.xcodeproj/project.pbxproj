@@ -28,6 +28,7 @@
 		9D95D4D424FC5E8400F48BE7 /* DataPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */; };
 		9D95D4D624FC659E00F48BE7 /* TeamConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */; };
 		9DF9053925049EB500A81241 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9053825049EB500A81241 /* Season.swift */; };
+		9DFBFCF82506E16E00304D6F /* SeasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistence.swift; sourceTree = "<group>"; };
 		9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamConversions.swift; sourceTree = "<group>"; };
 		9DF9053825049EB500A81241 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				9DF9053825049EB500A81241 /* Season.swift */,
 				9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */,
 				9D3634CB24FF74EE00C192F9 /* GameHelper.swift */,
+				9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				9D95D4D424FC5E8400F48BE7 /* DataPersistence.swift in Sources */,
 				9D3634C824FF4C5F00C192F9 /* NHLApiServices.swift in Sources */,
+				9DFBFCF82506E16E00304D6F /* SeasonHelper.swift in Sources */,
 				9D3634CA24FF6B5C00C192F9 /* NextGame.swift in Sources */,
 				9D95D4B324FB19C800F48BE7 /* NHL_Tracker.xcdatamodeld in Sources */,
 				9D95D4AD24FB19C800F48BE7 /* SeasonGamesViewController.swift in Sources */,
