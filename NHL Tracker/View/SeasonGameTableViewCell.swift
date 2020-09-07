@@ -17,6 +17,7 @@ class SeasonGameTableViewCell: UITableViewCell {
     @IBOutlet weak var score2Label: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var arenaLabel: UILabel!
+    @IBOutlet weak var gameNumberLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

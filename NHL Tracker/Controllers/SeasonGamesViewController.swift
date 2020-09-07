@@ -76,12 +76,15 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                         return
                     }
                     
+                    //Get all the season games
                     let seasonGames = responseObject.dates
                     
+                    //Empty array if it has anything in it
                     if (self.tableTeams.count > 0) {
                         self.tableTeams.removeAll()
                     }
                     
+                    //Iterate through the games creating a new season game at each index with the given game data returned from the api call
                     for i in 0 ..< seasonGames.count {
                         var currentDate = ""
                         let currentHomeTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.home.team.name)
@@ -118,21 +121,26 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     }
     
     //MARK: Table View Functions
+    //Set the number of sections in the table view
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    //Set the number of rows in the table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableTeams.count
     }
     
+    //Setuo the table cell with custom SeasonGameTableViewCells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! SeasonGameTableViewCell
         
+        //Populate the cell labels with the given season game values
         let seasonGame = tableTeams[indexPath.row]
         
         cell.timeLabel?.text = seasonGame.time
         cell.arenaLabel?.text = seasonGame.arena
+        cell.gameNumberLabel?.text = "Game #\(indexPath.row + 1)"
         
         if (seasonGame.isHomeGame) {
             cell.team1Label?.text = seasonGame.homeTeamName
@@ -142,12 +150,15 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
             //Bold the home team
             cell.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
             cell.team2Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+            //If favouirte team won set the colour to green
             if (seasonGame.homeTeamScore > seasonGame.awayTeamScore) {
                 cell.backgroundColor = UIColor.systemGreen
             }
+            //If favourite team lose set the colour to red
             else if (seasonGame.awayTeamScore > seasonGame.homeTeamScore) {
                 cell.backgroundColor = UIColor.systemRed
             }
+            //If game hasn't been played yet set the colour to default
             else {
                 cell.backgroundColor = UIColor.label
             }
@@ -160,12 +171,15 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
             //Bold the home team
             cell.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
             cell.team2Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+            //If favourite team lost set the colour to red
             if (seasonGame.homeTeamScore > seasonGame.awayTeamScore) {
                 cell.backgroundColor = UIColor.systemRed
             }
+            //If favouirte team won set the colour to green
             else if (seasonGame.awayTeamScore > seasonGame.homeTeamScore) {
                 cell.backgroundColor = UIColor.systemGreen
             }
+            //If game hasn't been played yet set the colour to default
             else {
                 cell.backgroundColor = UIColor.label
             }
@@ -173,6 +187,7 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    //Setup the table section title
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let teamAndSeason = "\(favouriteTeamName) \(currentSeason)"
         //Choose games or schedule as part of the title depending on the team name and season length
