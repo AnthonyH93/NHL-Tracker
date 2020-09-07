@@ -30,6 +30,7 @@
 		9DF9053925049EB500A81241 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF9053825049EB500A81241 /* Season.swift */; };
 		9DFBFCF82506E16E00304D6F /* SeasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */; };
 		9DFBFCFB2506E77D00304D6F /* SeasonGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCFA2506E77D00304D6F /* SeasonGameTableViewCell.swift */; };
+		9DFBFCFD2506EC5C00304D6F /* SeasonGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCFC2506EC5C00304D6F /* SeasonGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		9DF9053825049EB500A81241 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonHelper.swift; sourceTree = "<group>"; };
 		9DFBFCFA2506E77D00304D6F /* SeasonGameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonGameTableViewCell.swift; sourceTree = "<group>"; };
+		9DFBFCFC2506EC5C00304D6F /* SeasonGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */,
 				9D3634CB24FF74EE00C192F9 /* GameHelper.swift */,
 				9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */,
+				9DFBFCFC2506EC5C00304D6F /* SeasonGame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				9D95D4AB24FB19C800F48BE7 /* NextGameViewController.swift in Sources */,
 				9D95D4A724FB19C800F48BE7 /* AppDelegate.swift in Sources */,
 				9D95D4D624FC659E00F48BE7 /* TeamConversions.swift in Sources */,
+				9DFBFCFD2506EC5C00304D6F /* SeasonGame.swift in Sources */,
 				9D3634C424FF4BF900C192F9 /* FullGame.swift in Sources */,
 				9DFBFCFB2506E77D00304D6F /* SeasonGameTableViewCell.swift in Sources */,
 				9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */,

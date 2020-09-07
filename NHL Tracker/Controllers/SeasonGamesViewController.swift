@@ -14,7 +14,7 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Variables
-    private var tableTeams: [String] = []
+    private var tableTeams: [SeasonGame] = []
     private var favouriteTeamName: String = ""
     private var currentSeason: String = ""
     
@@ -23,10 +23,17 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     let teamConversions = TeamConversions()
     let seasonHelper = SeasonHelper()
     
+    let dateFormatterGet = DateFormatter()
+    let dateFormatterPrint = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        
+        //Setup date formatter formats
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormatterPrint.dateFormat = "MMM dd, yyyy @HH:mm"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +84,14 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                     }
                     
                     for i in 0 ..< seasonGames.count {
-                        self.tableTeams.append(seasonGames[i].games[0].teams.home.team.name)
+                        var currentDate = ""
+                        var currentHomeTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.home.team.name)
+                        var currentAwayTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.away.team.name)
+                        //Format date to display on the screen
+                        if let date = self.dateFormatterGet.date(from: seasonGames[i].games[0].gameDate) {
+                            currentDate = self.dateFormatterPrint.string(from: date) + " EST"
+                        }
+                        self.tableTeams.append(SeasonGame(homeTeamName: currentHomeTeam, awayTeamName: currentAwayTeam, homeTeamScore: seasonGames[i].games[0].teams.home.score, awayTeamScore: seasonGames[i].games[0].teams.away.score, time: currentDate, arena: seasonGames[i].games[0].venue.name))
                     }
                     
                     group.leave()
@@ -113,11 +127,16 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! SeasonGameTableViewCell
         
-        let text = tableTeams[indexPath.row]
+        let seasonGame = tableTeams[indexPath.row]
         
-        cell.textLabel?.text = text
+        cell.team1Label?.text = seasonGame.homeTeamName
+        cell.team2Label?.text = seasonGame.awayTeamName
+        cell.score1Label?.text = String(seasonGame.homeTeamScore)
+        cell.score2Label?.text = String(seasonGame.awayTeamScore)
+        cell.timeLabel?.text = seasonGame.time
+        cell.arenaLabel?.text = seasonGame.arena
         
         return cell
     }
