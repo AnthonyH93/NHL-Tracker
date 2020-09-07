@@ -22,6 +22,7 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     let nhlApiServices = NHLApiServices()
     let teamConversions = TeamConversions()
     let seasonHelper = SeasonHelper()
+    let gameHelper = GameHelper()
     
     let dateFormatterGet = DateFormatter()
     let dateFormatterPrint = DateFormatter()
@@ -44,7 +45,6 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
             favouriteTeamName = savedFavouriteTeam.favouriteTeam
             var seasonStartDate = ""
             var seasonEndDate = ""
-            var seasonGames = 0
             
             let queue = OperationQueue()
             
@@ -60,7 +60,6 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                     //Update start date, end date and number of games with the response
                     seasonStartDate = responseObject.seasons[0].regularSeasonStartDate
                     seasonEndDate = responseObject.seasons[0].regularSeasonEndDate
-                    seasonGames = responseObject.seasons[0].numberOfGames
                     self.currentSeason = self.seasonHelper.formatSeasonID(seasonID: responseObject.seasons[0].seasonId)
                     group.leave()
                 }
@@ -85,13 +84,14 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                     
                     for i in 0 ..< seasonGames.count {
                         var currentDate = ""
-                        var currentHomeTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.home.team.name)
-                        var currentAwayTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.away.team.name)
+                        let currentHomeTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.home.team.name)
+                        let currentAwayTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.away.team.name)
+                        let isCurrentGameHome = self.gameHelper.decideHomeOrAway(teams: seasonGames[i].games[0].teams, favTeam: self.favouriteTeamName)
                         //Format date to display on the screen
                         if let date = self.dateFormatterGet.date(from: seasonGames[i].games[0].gameDate) {
                             currentDate = self.dateFormatterPrint.string(from: date) + " EST"
                         }
-                        self.tableTeams.append(SeasonGame(homeTeamName: currentHomeTeam, awayTeamName: currentAwayTeam, homeTeamScore: seasonGames[i].games[0].teams.home.score, awayTeamScore: seasonGames[i].games[0].teams.away.score, time: currentDate, arena: seasonGames[i].games[0].venue.name))
+                        self.tableTeams.append(SeasonGame(homeTeamName: currentHomeTeam, awayTeamName: currentAwayTeam, homeTeamScore: seasonGames[i].games[0].teams.home.score, awayTeamScore: seasonGames[i].games[0].teams.away.score, time: currentDate, arena: seasonGames[i].games[0].venue.name, isHomeGame: isCurrentGameHome))
                     }
                     
                     group.leave()
@@ -131,13 +131,45 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
         
         let seasonGame = tableTeams[indexPath.row]
         
-        cell.team1Label?.text = seasonGame.homeTeamName
-        cell.team2Label?.text = seasonGame.awayTeamName
-        cell.score1Label?.text = String(seasonGame.homeTeamScore)
-        cell.score2Label?.text = String(seasonGame.awayTeamScore)
         cell.timeLabel?.text = seasonGame.time
         cell.arenaLabel?.text = seasonGame.arena
         
+        if (seasonGame.isHomeGame) {
+            cell.team1Label?.text = seasonGame.homeTeamName
+            cell.team2Label?.text = seasonGame.awayTeamName
+            cell.score1Label?.text = String(seasonGame.homeTeamScore)
+            cell.score2Label?.text = String(seasonGame.awayTeamScore)
+            //Bold the home team
+            cell.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+            cell.team2Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+            if (seasonGame.homeTeamScore > seasonGame.awayTeamScore) {
+                cell.backgroundColor = UIColor.systemGreen
+            }
+            else if (seasonGame.awayTeamScore > seasonGame.homeTeamScore) {
+                cell.backgroundColor = UIColor.systemRed
+            }
+            else {
+                cell.backgroundColor = UIColor.label
+            }
+        }
+        else {
+            cell.team2Label?.text = seasonGame.homeTeamName
+            cell.team1Label?.text = seasonGame.awayTeamName
+            cell.score2Label?.text = String(seasonGame.homeTeamScore)
+            cell.score1Label?.text = String(seasonGame.awayTeamScore)
+            //Bold the home team
+            cell.team1Label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+            cell.team2Label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+            if (seasonGame.homeTeamScore > seasonGame.awayTeamScore) {
+                cell.backgroundColor = UIColor.systemRed
+            }
+            else if (seasonGame.awayTeamScore > seasonGame.homeTeamScore) {
+                cell.backgroundColor = UIColor.systemGreen
+            }
+            else {
+                cell.backgroundColor = UIColor.label
+            }
+        }
         return cell
     }
     

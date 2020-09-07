@@ -13,7 +13,7 @@ class SeasonGame {
     
     //MARK: Initialization
     //Prepares and instance of a class for use
-    init(homeTeamName: String, awayTeamName: String, homeTeamScore: Int, awayTeamScore: Int, time: String, arena: String) {
+    init(homeTeamName: String, awayTeamName: String, homeTeamScore: Int, awayTeamScore: Int, time: String, arena: String, isHomeGame: Bool) {
         //Initialize stored properties
         self.homeTeamName = homeTeamName
         self.awayTeamName = awayTeamName
@@ -21,6 +21,7 @@ class SeasonGame {
         self.awayTeamScore = awayTeamScore
         self.time = time
         self.arena = arena
+        self.isHomeGame = isHomeGame
     }
     
     //MARK: Properties
@@ -30,4 +31,5 @@ class SeasonGame {
     let awayTeamScore: Int
     let time: String
     let arena: String
+    let isHomeGame: Bool
 }
