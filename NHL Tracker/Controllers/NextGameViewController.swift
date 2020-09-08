@@ -384,7 +384,7 @@ class NextGameViewController: UIViewController {
                 default:
                     emptyNetButton1.backgroundColor = UIColor.darkGray
                 }
-                switch awayPP {
+                switch awayEN {
                 case true:
                     emptyNetButton2.backgroundColor = UIColor.systemGreen
                 default:
@@ -412,7 +412,7 @@ class NextGameViewController: UIViewController {
                 default:
                     emptyNetButton2.backgroundColor = UIColor.darkGray
                 }
-                switch awayPP {
+                switch awayEN {
                 case true:
                     emptyNetButton1.backgroundColor = UIColor.systemGreen
                 default:
