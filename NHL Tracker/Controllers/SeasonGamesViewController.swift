@@ -97,11 +97,12 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                         let currentHomeTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.home.team.name)
                         let currentAwayTeam = self.teamConversions.teamNameToShortName(teamToConvert: seasonGames[i].games[0].teams.away.team.name)
                         let isCurrentGameHome = self.gameHelper.decideHomeOrAway(teams: seasonGames[i].games[0].teams, favTeam: self.favouriteTeamName)
+                        let currentVenue = "@" + seasonGames[i].games[0].venue.name
                         //Format date to display on the screen
                         if let date = self.dateFormatterGet.date(from: seasonGames[i].games[0].gameDate) {
                             currentDate = self.dateFormatterPrint.string(from: date) + " EST"
                         }
-                        self.tableTeams.append(SeasonGame(homeTeamName: currentHomeTeam, awayTeamName: currentAwayTeam, homeTeamScore: seasonGames[i].games[0].teams.home.score, awayTeamScore: seasonGames[i].games[0].teams.away.score, time: currentDate, arena: seasonGames[i].games[0].venue.name, isHomeGame: isCurrentGameHome))
+                        self.tableTeams.append(SeasonGame(homeTeamName: currentHomeTeam, awayTeamName: currentAwayTeam, homeTeamScore: seasonGames[i].games[0].teams.home.score, awayTeamScore: seasonGames[i].games[0].teams.away.score, time: currentDate, arena: currentVenue, isHomeGame: isCurrentGameHome))
                     }
                     
                     group.leave()
