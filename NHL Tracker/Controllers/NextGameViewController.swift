@@ -40,6 +40,7 @@ class NextGameViewController: UIViewController {
     let nhlApiServices = NHLApiServices()
     let teamConversions = TeamConversions()
     let gameHelper = GameHelper()
+    let constants = NHLTrackerConstants()
     
     let dateFormatterGet = DateFormatter()
     let dateFormatterPrint = DateFormatter()
@@ -111,6 +112,9 @@ class NextGameViewController: UIViewController {
                 self.nhlApiServices.fetchNextGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
                     guard let responseObject = responseObject, error == nil else {
                         print(error ?? "Unknown error with next game")
+                        DispatchQueue.main.async {
+                            self.displayErrorAlert()
+                        }
                         return
                     }
                     
@@ -146,6 +150,9 @@ class NextGameViewController: UIViewController {
                 self.nhlApiServices.fetchPreviousGame(teamID: savedFavouriteTeam.favouriteTeamNumber) { responseObject, error in
                     guard let responseObject = responseObject, error == nil else {
                         print(error ?? "Unknown error with previous game")
+                        DispatchQueue.main.async {
+                            self.displayErrorAlert()
+                        }
                         return
                     }
                     //Check if there is a previous game to display
@@ -187,6 +194,9 @@ class NextGameViewController: UIViewController {
                     self.nhlApiServices.fetchLineScore(teamPK: nextGamePK) { responseObject, error in
                         guard let responseObject = responseObject, error == nil else {
                             print(error ?? "Unknown error with line score")
+                            DispatchQueue.main.async {
+                                self.displayErrorAlert()
+                            }
                             return
                         }
                         //Use the response object and extract data needed
@@ -211,6 +221,9 @@ class NextGameViewController: UIViewController {
                         self.nhlApiServices.fetchLineScore(teamPK: prevGamePK) { responseObject, error in
                             guard let responseObject = responseObject, error == nil else {
                                 print(error ?? "Unknown error with line score")
+                                DispatchQueue.main.async {
+                                    self.displayErrorAlert()
+                                }
                                 return
                             }
                             //Use the response object and extract data needed
@@ -414,5 +427,20 @@ class NextGameViewController: UIViewController {
             emptyNetButton1.backgroundColor = UIColor.darkGray
             emptyNetButton2.backgroundColor = UIColor.darkGray
         }
+    }
+    
+    private func displayErrorAlert() {
+        //Create and display alert about an API error
+        let errorAlert = UIAlertController(title: constants.errorAlertTitle, message: constants.errorAlertMessage, preferredStyle: .alert)
+        
+        //create Okay button
+        let doneAction = UIAlertAction(title: "Done", style: .default) {
+            (action) -> Void in
+        }
+        
+        //Add task to tableview buttons
+        errorAlert.addAction(doneAction)
+        
+        self.present(errorAlert, animated: true, completion: nil)
     }
 }

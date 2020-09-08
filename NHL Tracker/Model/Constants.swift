@@ -45,4 +45,8 @@ struct NHLTrackerConstants {
     let favouriteTeamAlertTitle: String = "Favourite Team Updated"
     
     let favouriteTeamAlertMessage: String = "You have updated your favourite team to "
+    
+    let errorAlertTitle: String = "Error Retrieving Data"
+    
+    let errorAlertMessage: String = "An error occurred while retrieving data, please check your internet connection and try again."
 }
