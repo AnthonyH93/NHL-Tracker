@@ -23,6 +23,7 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
     let teamConversions = TeamConversions()
     let seasonHelper = SeasonHelper()
     let gameHelper = GameHelper()
+    let constants = NHLTrackerConstants()
     
     let dateFormatterGet = DateFormatter()
     let dateFormatterPrint = DateFormatter()
@@ -55,6 +56,9 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                 self.nhlApiServices.fetchCurrentSeason() { responseObject, error in
                     guard let responseObject = responseObject, error == nil else {
                         print(error ?? "Unknown error with current season")
+                        DispatchQueue.main.async {
+                            self.displayErrorAlert()
+                        }
                         return
                     }
                     //Update start date, end date and number of games with the response
@@ -73,6 +77,9 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
                 self.nhlApiServices.fetchSeasonGames(teamID: savedFavouriteTeam.favouriteTeamNumber, startDate: seasonStartDate, endDate: seasonEndDate) { responseObject, error in
                     guard let responseObject = responseObject, error == nil else {
                         print(error ?? "Unknown error with season games")
+                        DispatchQueue.main.async {
+                            self.displayErrorAlert()
+                        }
                         return
                     }
                     
@@ -193,5 +200,22 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
         //Choose games or schedule as part of the title depending on the team name and season length
         let title = self.seasonHelper.formatSectionTitle(teamAndSeason: teamAndSeason)
         return title
+    }
+    
+    //MARK: Private Functions
+    //Function to display an error alert when an API call fails
+    private func displayErrorAlert() {
+        //Create and display alert about an API error
+        let errorAlert = UIAlertController(title: constants.errorAlertTitle, message: constants.errorAlertMessage, preferredStyle: .alert)
+        
+        //create Okay button
+        let doneAction = UIAlertAction(title: "Done", style: .default) {
+            (action) -> Void in
+        }
+        
+        //Add task to tableview buttons
+        errorAlert.addAction(doneAction)
+        
+        self.present(errorAlert, animated: true, completion: nil)
     }
 }

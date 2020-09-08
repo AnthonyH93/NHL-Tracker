@@ -429,6 +429,7 @@ class NextGameViewController: UIViewController {
         }
     }
     
+    //Function to display an error alert when an API call fails
     private func displayErrorAlert() {
         //Create and display alert about an API error
         let errorAlert = UIAlertController(title: constants.errorAlertTitle, message: constants.errorAlertMessage, preferredStyle: .alert)
