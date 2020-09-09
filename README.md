@@ -4,7 +4,7 @@
 
 Tabbed Storyboard iOS application built in Xcode with Swift allowing users to track their favourite NHL team.
 
-This app utilizes the nhlapi to retrieve data which is processed and displayed through several views, including an intuitive next game tab, a table view tab of the selected teams entire season of games and a simple settings page for setting the users favourite team. Documentation for the NHL API was found in the following repository: https://gitlab.com/dword4/nhlapi.
+This app utilizes the NHL API to retrieve data which is processed and displayed through several views, including an intuitive next game tab, a table view tab of the selected teams entire season of games and a simple settings page for setting the users favourite team. Documentation for the NHL API was found in the following repository: https://gitlab.com/dword4/nhlapi.
 
 I built this app following the MVC architecture as much as possible, however most of the View code is handled by the Storyboards.
 
