@@ -54,4 +54,4 @@ This app is currently being worked on!
 * Integrating the app with the native iOS Calendar to add games/season schedule to the users calendar
 
 ## Disclaimer
-This application is not affiliated with the NHL in any way, it simply uses the nhlapi and was built by an NHL fan to practice iOS development.
+This application is not affiliated with the NHL in any way, it simply uses the NHL API and was built by an NHL fan to practice iOS development.
