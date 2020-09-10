@@ -31,6 +31,7 @@
 		9DFBFCF82506E16E00304D6F /* SeasonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */; };
 		9DFBFCFB2506E77D00304D6F /* SeasonGameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCFA2506E77D00304D6F /* SeasonGameTableViewCell.swift */; };
 		9DFBFCFD2506EC5C00304D6F /* SeasonGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFBFCFC2506EC5C00304D6F /* SeasonGame.swift */; };
+		9DFFB75A2509CEA9003055F6 /* SeasonGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFB7592509CEA9003055F6 /* SeasonGames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonHelper.swift; sourceTree = "<group>"; };
 		9DFBFCFA2506E77D00304D6F /* SeasonGameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonGameTableViewCell.swift; sourceTree = "<group>"; };
 		9DFBFCFC2506EC5C00304D6F /* SeasonGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonGame.swift; sourceTree = "<group>"; };
+		9DFFB7592509CEA9003055F6 /* SeasonGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonGames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				9D3634C924FF6B5C00C192F9 /* NextGame.swift */,
 				9D3634C524FF4C0C00C192F9 /* PreviousGame.swift */,
 				9DF9053825049EB500A81241 /* Season.swift */,
+				9DFFB7592509CEA9003055F6 /* SeasonGames.swift */,
 			);
 			path = APIResponseModels;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				9DFBFCFB2506E77D00304D6F /* SeasonGameTableViewCell.swift in Sources */,
 				9D95D4D024FB223300F48BE7 /* Constants.swift in Sources */,
 				9D3634C624FF4C0C00C192F9 /* PreviousGame.swift in Sources */,
+				9DFFB75A2509CEA9003055F6 /* SeasonGames.swift in Sources */,
 				9D95D4A924FB19C800F48BE7 /* SceneDelegate.swift in Sources */,
 				9D95D4CE24FB1C8600F48BE7 /* SettingsViewController.swift in Sources */,
 				9D57351F2501EC16009386B0 /* LineScore.swift in Sources */,
