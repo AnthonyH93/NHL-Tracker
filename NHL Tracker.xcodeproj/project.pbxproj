@@ -138,14 +138,13 @@
 		9D95D4D724FC844600F48BE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9DFFB75B2509CF46003055F6 /* Helpers */,
 				9DFBFCF92506E69400304D6F /* APIResponseModels */,
 				9D95D4CF24FB223300F48BE7 /* Constants.swift */,
 				9D95D4D324FC5E8400F48BE7 /* DataPersistence.swift */,
 				9D95D4D124FC5C3600F48BE7 /* FavouriteNHLTeam.swift */,
 				9D95D4D524FC659E00F48BE7 /* TeamConversions.swift */,
 				9D3634C724FF4C5F00C192F9 /* NHLApiServices.swift */,
-				9D3634CB24FF74EE00C192F9 /* GameHelper.swift */,
-				9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */,
 				9DFBFCFC2506EC5C00304D6F /* SeasonGame.swift */,
 			);
 			path = Model;
@@ -199,6 +198,15 @@
 				9DFFB7592509CEA9003055F6 /* SeasonGames.swift */,
 			);
 			path = APIResponseModels;
+			sourceTree = "<group>";
+		};
+		9DFFB75B2509CF46003055F6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9D3634CB24FF74EE00C192F9 /* GameHelper.swift */,
+				9DFBFCF72506E16E00304D6F /* SeasonHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
