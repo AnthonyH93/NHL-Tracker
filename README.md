@@ -10,7 +10,7 @@ I built this app following the MVC architecture as much as possible, however mos
 
 I am an avid fan of the NHL and really enjoyed making this app, it was an excellent experience and greatly strengthened my skills with MVC architecture, working with Api's, JSON parsing and table views. It was created for fun and will not be submitted to the iOS App Store mainly because of NHL liscencing and copyrights.
 
-Screen shots will be added soon!
+Screen shots throughout were taken on an iPhone X simulator.
 
 ## System Requirements
 
@@ -30,6 +30,18 @@ Currently, this app contains three tabs containing various information and funct
 * Games that are in progress also show the current period/intermission and time left in the period
 * The home team is bolded since the users favourite team is always shown on the left
 
+### Device Screenshots for Live Games
+
+Live Game from September 5, 2020 PHI Empty Net | Live Game from September 9, 2020 TBL Power Play | Live Game from September 9, 2020 First Intermission
+---------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------
+![alt text](NHL-Tracker-Screenshots/NYIvsPHILiveEmptyNet.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/TBLLivePowerPlay.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/TBLLiveIntermission.png?raw=true)
+
+### Device Screenshots for Scheduled/Finished Games
+
+Upcoming Game for NYI | Upcoming Game for VGK | Previous Game for WSH
+----------------------| --------------------- | ---------------------
+![alt text](NHL-Tracker-Screenshots/NYINextGame.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/VGKNextGame.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/WSHPreviousGame.png?raw=true)
+
 ### Season Games Tab
 
 * Displays all games of the users favourite team for the current season in a table view
@@ -38,10 +50,22 @@ Currently, this app contains three tabs containing various information and funct
 * If the game hasn't occurred yet then the cell will remain white/black depending on whether the user has dark mode on
 * Similarly to the next game view, the home team of each game is bolded
 
+### Device Screenshots for Season Schedules
+
+WSH 2019-2020 Schedule | TOR 2019-2020 Schedule 1 | TOR 2019-2020 Schedule 2
+-----------------------| ------------------------ | ------------------------
+![alt text](NHL-Tracker-Screenshots/WSHSchedule1.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/TORSchedule2.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/TORSchedule3.png?raw=true)
+
 ### Settings Tab
 
 * Contains a UIPicker to allow the user to select and update their favourite team, this is saved to the device so it is known for future launches of the app
 * Contains 2 switches for permissions which relate to the future plans of notification and Apple Calendar support
+
+### Device Screenshots for Settings Tab and Initial Views
+
+Next Game Initial View | Season Games Initial View | Settings Tab | Settings Tab Update Team Alert
+-----------------------| ------------------------- | ------------ | ------------------------------
+![alt text](NHL-Tracker-Screenshots/DefaultNextGameTab.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/InitialSeasonGamesTab.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/Settings1.png?raw=true) | ![alt text](NHL-Tracker-Screenshots/Settings2.png?raw=true)
 
 ## Current Development/Future Plans
 
