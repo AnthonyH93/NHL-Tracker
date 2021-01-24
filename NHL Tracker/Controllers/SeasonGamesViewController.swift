@@ -168,7 +168,12 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
             }
             //If game hasn't been played yet set the colour to default
             else {
-                cell.backgroundColor = UIColor.label
+                if (self.traitCollection.userInterfaceStyle == .dark) {
+                    cell.backgroundColor = UIColor.black;
+                }
+                else {
+                    cell.backgroundColor = UIColor.white;
+                }
             }
         }
         else {
@@ -189,7 +194,12 @@ class SeasonGamesViewController: UIViewController, UITableViewDataSource {
             }
             //If game hasn't been played yet set the colour to default
             else {
-                cell.backgroundColor = UIColor.label
+                if (self.traitCollection.userInterfaceStyle == .dark) {
+                    cell.backgroundColor = UIColor.black;
+                }
+                else {
+                    cell.backgroundColor = UIColor.white;
+                }
             }
         }
         return cell
