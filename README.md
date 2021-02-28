@@ -1,4 +1,4 @@
-# NHL-Tracker
+# NHL Tracker
 
 ## About
 
